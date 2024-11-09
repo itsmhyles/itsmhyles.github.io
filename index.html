@@ -12,6 +12,32 @@
             margin: 0 auto;
             padding: 2rem;
         }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaecef;
+        }
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #24292e;
+        }
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            color: #0366d6;
+        }
         .container {
             display: flex;
             gap: 2rem;
@@ -26,31 +52,27 @@
         .intro {
             flex: 1;
         }
-        .nav {
-            margin-bottom: 2rem;
-        }
-        .nav a {
-            margin-right: 1rem;
-            text-decoration: none;
-            color: #0366d6;
-        }
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <a href="/" class="site-title">Mhyles Roque</a>
+        <nav class="nav">
+            <a href="#projects">Projects</a>
+            <a href="#blog">Blog</a>
+            <a href="#about">About Me</a>
+            <a href="https://github.com/itsmhyles">GitHub</a>
+        </nav>
+    </header>
+
     <div class="container">
-        <img src="assets/Mhyles Professional Photo.jpeg" alt="Mhyles Roque" class="profile-image">
+        <img src="./assets/profile-photo.jpg" alt="Mhyles Roque" class="profile-image">
         <div class="intro">
-            <h1>Mhyles Roque</h1>
-            <p>Hi! I'm Mhyles, and welcome to my page.</p>
+            <h1>Hi friends!</h1>
+            <p>I'm Mhyles, and welcome to my page.</p>
             <p>Presently, I'm pursuing Software Development as a graduate student in Boston. I previously worked in strategy, finance, data, and product, mostly in the tech start-up scene.</p>
             <p>My passion lies in data science and software development, particularly at the intersection of AI applications and economic policies. I thrive on building innovative products and am eager to connect for discussions or collaborations—let's chat!</p>
         </div>
-    </div>
-
-    <div class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#blog">Blog</a>
-        <a href="https://github.com/itsmhyles">GitHub</a>
     </div>
 
     <section id="projects">
