@@ -28,25 +28,19 @@ The crisis has intensified significantly in recent years:
 The discourse surrounding homelessness has become increasingly politicized, with divergent narratives emerging about its causes and solutions. 
 The widely accepted narrative often attributes homelessness to individual choices, conveniently absolving broader societal structures of responsibility. 
 However, academic research indicates that the true drivers of homelessness lie in complex interactions between labor market conditions and housing market dynamics (Anderson & Tsikalas, 2024).
-Recent polling data reveals a more nuanced public understanding of this crisis. 
-A majority of Americans (57%) recognize homelessness as resulting from "circumstances beyond an individual's control," rather than individual choices, 
-with this view holding true across partisan lines - including 69% of Democrats and 51% of Republicans. 
-The primary causes identified by voters span both structural and individual factors, with drug and alcohol addiction (81%), 
-lack of affordable housing (76%), and mental or physical disabilities (74%) ranking as the top concerns (Fairclough II et al., 2024).
-The complexity of public perception is further illustrated by demographic variations in understanding. 
-Women (65%) are significantly more likely than men (48%) to attribute homelessness to systemic issues such as lack of affordable housing,
-while 74% of all respondents identify the shortage of affordable homes as a critical national problem (YouGov, 2024). 
-This understanding crosses political boundaries, with 83% of Democrats, 71% of independents, and 68% of Republicans acknowledging the severity of the housing affordability crisis (Bipartisan Policy Center, 2024).
-These findings collectively demonstrate a significant disconnect between public understanding and political discourse. 
-While the general population increasingly recognizes the multifaceted nature of homelessness, political narratives often remain entrenched in simplified, 
-partisan frameworks that fail to capture this complexity (Culhane & Byrne, 2013).
 
-The implications of this disconnect extend far beyond academic discourse, potentially shaping both policy outcomes and electoral dynamics.
-Research indicates that political beliefs significantly influence policy preferences regarding homelessness, 
-with partisan affiliations often determining support for specific interventions despite broad agreement on underlying causes (Lee et al., 2010). 
-During the 2024 campaigns, homelessness has emerged as a pivotal issue, with candidates across the political spectrum 
-leveraging different narratives to appeal to their bases. This politicization of homelessness, while potentially raising awareness of the issue, 
-risks oversimplifying complex solutions and impeding the implementation of evidence-based policies that could effectively address this growing crisis.
+
+Recent polling data reveals a more nuanced public understanding of this crisis. 
+- A majority of Americans (57%) recognize homelessness as resulting from "circumstances beyond an individual's control," rather than individual choices, with this view holding true across partisan lines - including 69% of Democrats and 51% of Republicans.
+- The primary causes identified by voters span both structural and individual factors, with drug and alcohol addiction (81%), lack of affordable housing (76%), and mental or physical disabilities (74%) ranking as the top concerns (Fairclough II et al., 2024).
+- The complexity of public perception is further illustrated by demographic variations in understanding.
+  * Women (65%) are significantly more likely than men (48%) to attribute homelessness to systemic issues such as lack of affordable housing, while 74% of all respondents identify the shortage of affordable homes as a critical national problem (YouGov, 2024).
+  * This understanding crosses political boundaries, with 83% of Democrats, 71% of independents, and 68% of Republicans acknowledging the severity of the housing affordability crisis (Bipartisan Policy Center, 2024).
+
+These findings collectively demonstrate a significant disconnect between public understanding and political discourse.
+While the general population increasingly recognizes the multifaceted nature of homelessness, political narratives often remain entrenched in simplified, partisan frameworks that fail to capture this complexity (Culhane & Byrne, 2013). The implications of this disconnect extend far beyond academic discourse, potentially shaping both policy outcomes and electoral dynamics. Research indicates that political beliefs significantly influence policy preferences regarding homelessness, with partisan affiliations often determining support for specific interventions despite broad agreement on underlying causes (Lee et al., 2010). 
+
+During the 2024 campaigns, homelessness has emerged as a pivotal issue, with candidates across the political spectrum  leveraging different narratives to appeal to their bases. This politicization of homelessness, while potentially raising awareness of the issue,  risks oversimplifying complex solutions and impeding the implementation of evidence-based policies that could effectively address this growing crisis.
 
 ## Research Objectives
 This study aims to:
