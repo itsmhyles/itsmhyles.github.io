@@ -44,9 +44,9 @@ During the 2024 campaigns, homelessness has emerged as a pivotal issue, with can
 
 ## Research Objectives
 This study aims to:
-Examine the relationship between homelessness and political ideologies
-Analyze how these relationships are often misconstrued in public discourse
-Evaluate the correlations between homelessness rates and socioeconomic indicators, including housing market dynamics, income inequality, and regional economic factors, to better understand causation versus political attribution
+- Examine the relationship between homelessness and political ideologies
+- Analyze how these relationships are often misconstrued in public discourse
+- Evaluate the correlations between homelessness rates and socioeconomic indicators, including housing market dynamics, income inequality, and regional economic factors, to better understand causation versus political attribution
 
 ## Methodological Framework
 
@@ -143,7 +143,7 @@ The relationship between economic prosperity and homelessness reveals complex pa
 - Market forces drive up housing costs
 - Local policies struggle to maintain affordability within free market constraints
 
-****Demographic Patterns**
+**Demographic Patterns**
 As reported by the U.S. Department of Housing and Urban Development, in 2023:
 - Black Americans comprise 37% of the homeless population while representing 13% of the U.S. population
 - Hispanic/Latino individuals make up 33% of those experiencing homelessness while representing 19% of the total population
