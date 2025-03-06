@@ -5,9 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Mhyles Roque</title>
     <style>
-        /* Copy the same base styles from above */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaecef;
+        }
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #24292e;
+        }
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            color: #0366d6;
+        }
         .about-content {
             margin-top: 2rem;
+        }
+        .about-content ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-content li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -22,18 +62,21 @@
         </nav>
     </header>
 
-    <h1>About Me</h1>
-    
-    <div class="about-content">
-        <p>Hi! I'm Mhyles, a Computer Science graduate student at Boston University.</p>
-        <p>My journey began in accounting and finance, where I developed a strong foundation in analytical thinking and problem-solving. Through my work in strategy and product roles at tech startups, I discovered my passion for technology and its potential to create meaningful impact.</p>
-        <p>Currently, I'm focusing on:</p>
-        <ul>
-            <li>Software Development</li>
-            <li>Data Science</li>
-            <li>AI Applications</li>
-            <li>Economic Policy Analysis</li>
-        </ul>
-    </div>
+    <main>
+        <h1>About Me</h1>
+        
+        <div class="about-content">
+            <p>Hi! I'm Mhyles, a Computer Science graduate student at Boston University.</p>
+            <p>My journey began in accounting and finance, where I developed a strong foundation in analytical thinking and problem-solving. Through my work in strategy and product roles at tech startups, I discovered my passion for technology and its potential to create meaningful impact.</p>
+            <p>Currently, I'm focusing on:</p>
+            <ul>
+                <li>Software Development</li>
+                <li>Data Science</li>
+                <li>AI Applications</li>
+                <li>Economic Policy Analysis</li>
+            </ul>
+            <p>I'm always eager to connect with fellow developers, researchers, and anyone interested in the intersection of technology and economic policy. Feel free to reach out!</p>
+        </div>
+    </main>
 </body>
 </html>

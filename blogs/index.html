@@ -5,15 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Mhyles Roque</title>
     <style>
-        /* Copy the same base styles from above */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaecef;
+        }
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #24292e;
+        }
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            color: #0366d6;
+        }
         .blog-post {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid #eaecef;
         }
+        .blog-post h2 {
+            color: #0366d6;
+            margin-bottom: 0.5rem;
+        }
         .post-date {
             color: #586069;
             font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
         }
     </style>
 </head>
@@ -28,12 +66,15 @@
         </nav>
     </header>
 
-    <h1>Blog Posts</h1>
-    
-    <div class="blog-post">
-        <h2>On Switching to Computer Science</h2>
-        <p class="post-date">November 2024</p>
-        <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
-    </div>
+    <main>
+        <h1>Blog Posts</h1>
+        
+        <article class="blog-post">
+            <h2>On Switching to Computer Science</h2>
+            <span class="post-date">November 2024</span>
+            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
+            <p><em>Coming soon...</em></p>
+        </article>
+    </main>
 </body>
 </html>

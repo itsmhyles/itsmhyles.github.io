@@ -11,93 +11,79 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaecef;
+        }
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
             color: #24292e;
         }
-
-        /* Navigation */
         .nav {
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #eaecef;
             display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+            gap: 1.5rem;
         }
-
         .nav a {
             text-decoration: none;
             color: #24292e;
             font-weight: 500;
         }
-
         .nav a:hover {
             color: #0366d6;
         }
-
-        /* Project Styles */
         .project {
             margin-bottom: 3rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid #eaecef;
         }
-
-        .project h2 {
-            margin-bottom: 0.5rem;
-        }
-
         .project h2 a {
             color: #0366d6;
             text-decoration: none;
         }
-
         .project h2 a:hover {
             text-decoration: underline;
         }
-
         .project-meta {
             margin-top: 1rem;
             font-size: 0.9rem;
             color: #586069;
         }
-
         .project-meta span {
             margin-right: 1rem;
         }
-
         .tags {
             color: #0366d6;
-        }
-
-        h1 {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eaecef;
         }
     </style>
 </head>
 <body>
-        <!-- Add navbar at the top -->
     <header class="site-header">
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
-            <a href="/about">About</a>
-            <a href="/life">Life</a>
-            <a href="/research">Research</a>
-            <a href="/projects">Projects</a>
-            <a href="/notebook">Notebook</a>
+            <a href="/projects/index.html">Projects</a>
+            <a href="/blogs/index.html">Blog</a>
+            <a href="/about/index.html">About Me</a>
+            <a href="https://github.com/itsmhyles">GitHub</a>
         </nav>
     </header>
 
-   <!-- Main content -->
     <main>
         <h1>Projects</h1>
         <article class="project">
-            <h2><a href="/projects/2024/11/nereus">Nereus</a></h2>
-            <p>Nereus: Analyzing Homelessness and Politics across America.</p>
+            <h2><a href="/projects/2024/11/nereus.html">Nereus</a></h2>
+            <p>Nereus is a mini-project which examines the complex relationships between homelessness rates, climate conditions, and political ideologies across American states. The research was initiated to investigate the observed correlation between Democratic-leaning ('blue') states and higher rates of homelessness, while exploring the public's strong reactions to this phenomenon.</p>
             <div class="project-meta">
                 <span class="date">November 2024</span>
                 <span class="tags">Data Analysis, Politics, Homelessness</span>
             </div>
+            <p><em>Fun Fact: Nereus was named after the Greek Sea God who in Percy Jackson appears as a homeless man on the docks of San Francisco</em></p>
         </article>
     </main>
 </body>
