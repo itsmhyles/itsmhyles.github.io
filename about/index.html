@@ -50,6 +50,33 @@
         .about-content li {
             margin-bottom: 0.5rem;
         }
+        .profile-container {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-text {
+            flex: 1;
+        }
+        .other-links {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eaecef;
+        }
+        .contact {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eaecef;
+        }
+        .contact p {
+            margin: 0.5rem 0;
+        }
     </style>
 </head>
 <body>
@@ -66,9 +93,15 @@
     <main>
         <h1>About Me</h1>
         
+        <div class="profile-container">
+            <img src="/assets/Mhyles Professional Photo.jpeg" alt="Mhyles Roque" class="profile-image">
+            <div class="profile-text">
+                <p>Hi! I'm Mhyles, a Computer Science graduate student at Boston University.</p>
+                <p>My journey began in accounting and finance, where I developed a strong foundation in analytical thinking and problem-solving. Through my work in strategy and product roles at tech startups, I discovered my passion for technology and its potential to create meaningful impact.</p>
+            </div>
+        </div>
+
         <div class="about-content">
-            <p>Hi! I'm Mhyles, a Computer Science graduate student at Boston University.</p>
-            <p>My journey began in accounting and finance, where I developed a strong foundation in analytical thinking and problem-solving. Through my work in strategy and product roles at tech startups, I discovered my passion for technology and its potential to create meaningful impact.</p>
             <p>Currently, I'm focusing on:</p>
             <ul>
                 <li>Software Development</li>
@@ -77,6 +110,21 @@
                 <li>Economic Policy Analysis</li>
             </ul>
             <p>I'm always eager to connect with fellow developers, researchers, and anyone interested in the intersection of technology and economic policy. Feel free to reach out!</p>
+        </div>
+
+        <div class="other-links">
+            <h2>Other Links</h2>
+            <ul>
+                <li><a href="/readinglist/index.html">Reading List</a> - Book reviews and recommendations</li>
+                <li><a href="/musings/index.html">Musings</a> - Short thoughts and reflections</li>
+            </ul>
+        </div>
+
+        <div class="contact">
+            <h2>Contact</h2>
+            <p>Mhyles Roque</p>
+            <p>Boston, MA</p>
+            <p>Email: mhylesroque [at] gmail [dot] com</p>
         </div>
     </main>
 </body>
