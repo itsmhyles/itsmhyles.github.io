@@ -8,7 +8,7 @@
         :root {
             --cream: #FFFAF0;
             --olive: #3D441E;
-            --chocolate: #D2691E;
+            --chocolate: #8B4513;
             --burnt-umber: #8B2500;
             --text: #000000;
         }
@@ -25,9 +25,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--burnt-umber);
+            margin-bottom: 4rem;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
             font-size: 1.5rem;
@@ -41,7 +41,7 @@
         }
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         .nav a {
             text-decoration: none;
@@ -56,15 +56,19 @@
             background-color: var(--olive);
             font-weight: bold;
         }
+        main {
+            padding: 0 1rem;
+        }
         h1 {
             color: var(--olive);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         article {
-            margin-bottom: 4rem;
-            padding: 1.5rem;
-            border-radius: 8px;
+            margin: 2rem 0 5rem;
+            padding: 2rem;
+            border-radius: 12px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         article:hover {
             transform: translateY(-2px);
