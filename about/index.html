@@ -8,7 +8,7 @@
         :root {
             --cream: #FFFAF0;
             --olive: #3D441E;
-            --chocolate: #D2691E;
+            --chocolate: #8B4513;
             --burnt-umber: #8B2500;
             --text: #000000;
         }
@@ -25,9 +25,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--burnt-umber);
+            margin-bottom: 4rem;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
             font-size: 1.5rem;
@@ -41,7 +41,7 @@
         }
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         .nav a {
             text-decoration: none;
@@ -58,13 +58,14 @@
         }
         h1, h2 {
             color: var(--olive);
-            margin-bottom: 1.2rem;
+            margin-bottom: 2rem;
         }
         .about-content {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            border-radius: 8px;
+            margin: 0 0 4rem;
+            padding: 2rem;
+            border-radius: 12px;
             transition: transform 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         .about-content:hover {
             transform: translateY(-2px);
@@ -81,13 +82,17 @@
         .about-content li:hover {
             color: var(--chocolate);
         }
+        main {
+            padding: 0 1rem;
+        }
         .profile-container {
             display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 8px;
+            gap: 3rem;
+            margin: 2rem 0 4rem;
+            padding: 2rem;
+            border-radius: 12px;
             transition: transform 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         .profile-container:hover {
             transform: translateY(-2px);
@@ -106,11 +111,12 @@
             flex: 1;
         }
         .other-links {
-            margin-top: 3rem;
+            margin: 0 0 4rem;
             padding: 2rem;
-            border-top: 2px solid var(--burnt-umber);
-            border-radius: 8px;
+            border-top: 3px solid var(--burnt-umber);
+            border-radius: 12px;
             transition: all 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         .other-links:hover {
             background-color: rgba(255, 255, 255, 0.5);
@@ -124,11 +130,12 @@
             color: var(--burnt-umber);
         }
         .contact {
-            margin-top: 3rem;
+            margin: 0;
             padding: 2rem;
-            border-top: 2px solid var(--burnt-umber);
-            border-radius: 8px;
+            border-top: 3px solid var(--burnt-umber);
+            border-radius: 12px;
             transition: all 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         .contact:hover {
             background-color: rgba(255, 255, 255, 0.5);
