@@ -8,7 +8,7 @@
         :root {
             --cream: #FFFAF0;
             --olive: #3D441E;
-            --chocolate: #D2691E;
+            --chocolate: #8B4513;
             --burnt-umber: #8B2500;
             --text: #000000;
         }
@@ -25,9 +25,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--burnt-umber);
+            margin-bottom: 4rem;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
             font-size: 1.5rem;
@@ -41,7 +41,7 @@
         }
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         .nav a {
             text-decoration: none;
@@ -58,11 +58,12 @@
         }
         .container {
             display: flex;
-            gap: 2rem;
-            margin-bottom: 4rem;
-            padding: 1.5rem;
-            border-radius: 8px;
+            gap: 3rem;
+            margin: 2rem 0 5rem;
+            padding: 2rem;
+            border-radius: 12px;
             transition: transform 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         .container:hover {
             transform: translateY(-2px);
@@ -85,16 +86,19 @@
             margin-bottom: 1.2rem;
         }
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+            padding: 0 1rem;
         }
         article {
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 2rem;
+            border-radius: 12px;
             transition: all 0.2s ease;
-            border-left: 3px solid transparent;
+            border-left: 4px solid transparent;
+            margin-top: 2rem;
+            background-color: rgba(255, 255, 255, 0.5);
         }
         article:hover {
-            border-left-color: var(--mahogany);
+            border-left-color: var(--burnt-umber);
             background-color: rgba(255, 255, 255, 0.5);
             transform: translateX(5px);
         }
