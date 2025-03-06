@@ -6,10 +6,11 @@
     <title>Reading List - Mhyles Roque</title>
     <style>
         :root {
-            --eggshell: #F9FEEF;
+            --cream: #FFFAF0;
             --olive: #3D441E;
+            --chocolate: #D2691E;
             --burnt-umber: #8B2500;
-            --text: #2C3E50;
+            --text: #000000;
             --star: #FFD700;
         }
         body {
@@ -19,7 +20,7 @@
             margin: 0 auto;
             padding: 2rem;
             color: var(--text);
-            background-color: var(--eggshell);
+            background-color: var(--cream);
         }
         .site-header {
             display: flex;
@@ -47,10 +48,14 @@
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            transition: color 0.2s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
         }
         .nav a:hover {
-            color: var(--olive);
+            color: var(--cream);
+            background-color: var(--olive);
+            font-weight: bold;
         }
         h1 {
             color: var(--olive);
@@ -69,7 +74,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         article h2 {
-            color: var(--olive);
+            color: var(--chocolate);
             margin-bottom: 0.75rem;
             font-size: 1.4rem;
             transition: color 0.2s ease;
