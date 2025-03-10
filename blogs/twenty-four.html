@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Mhyles Roque</title>
+    <title>Twenty Four - Mhyles Roque</title>
     <style>
         :root {
             --cream: #FFFAF0;
@@ -63,21 +63,11 @@
             color: var(--olive);
             margin-bottom: 2rem;
         }
-        article {
-            margin: 2rem 0 5rem;
+        .blog-content {
+            background-color: rgba(255, 255, 255, 0.5);
             padding: 2rem;
             border-radius: 12px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-        article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        article h2 {
-            color: var(--chocolate);
-            margin-bottom: 0.75rem;
-            font-size: 1.4rem;
+            margin-bottom: 2rem;
         }
         .post-date {
             color: var(--burnt-umber);
@@ -85,6 +75,21 @@
             margin-bottom: 1.2rem;
             display: block;
             font-style: italic;
+        }
+        .substack-button {
+            display: inline-block;
+            background-color: var(--olive);
+            color: var(--cream);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+        .substack-button:hover {
+            background-color: var(--burnt-umber);
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -100,20 +105,13 @@
     </header>
 
     <main>
-        <h1>Blog Posts</h1>
-        
-        <article class="blog-post">
-            <h2><a href="/blogs/twenty-four.html" style="text-decoration: none; color: inherit;">Twenty Four</a></h2>
+        <h1>Twenty Four</h1>
+        <div class="blog-content">
             <span class="post-date">March 2025</span>
-            <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living.</p>
-        </article>
-
-        <article class="blog-post">
-            <h2>On Switching to Computer Science</h2>
-            <span class="post-date">November 2024</span>
-            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
-            <p><em>Coming soon...</em></p>
-        </article>
+            <p>I turned 24 - now what? It's funny how when you grow older, birthdays start to matter less and less. But instead of the dread that fills most people as their years pass them by, I started taking my birthday like I would my death. When you're dying, you don't really care about material things. Achievements matter less - perhaps they still do to some people, but not so much to the majority. Instead, you start to question - who is at my deathbed? Am I surrounded by the people I love? Was I happy with the life I've lived?</p>
+            <p>You begin to ask yourself these questions, and they serve as a guideline for your birthday. You start to ask yourself - have I nurtured my relationships in the past year? Because a birthday isn't just some celebration of living, it also means you're one year closer to your death, and as the years pass by, really you want to make sure the life you live is worth living.</p>
+            <a href="https://mhyles.substack.com/" class="substack-button" target="_blank">Read More on My Substack</a>
+        </div>
     </main>
 </body>
 </html>
