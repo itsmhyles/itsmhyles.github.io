@@ -5,23 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mhyles Roque</title>
     <link rel="stylesheet" href="/styles/cursor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cream: #FFFAF0;
+            --cream: #FFFFF8;
             --olive: #3D441E;
             --chocolate: #8B4513;
             --burnt-umber: #8B2500;
             --text: #000000;
+            --grid-color: rgba(61, 68, 30, 0.06);
+            --dandelion-color: rgba(61, 68, 30, 0.15);
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
+            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
+            background-position: center center;
+            transform: perspective(1500px) rotateX(60deg);
+            transform-origin: center top;
+            opacity: 0.85;
+            filter: blur(0.2px);
         }
         body {
             font-family: 'Cormorant Garamond', serif;
-            line-height: 1.6;
-            max-width: 800px;
+            line-height: 1.8;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 3rem;
             color: var(--text);
             background-color: var(--cream);
+            font-size: 1.2rem;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
         .site-header {
             display: flex;
@@ -32,13 +59,12 @@
             border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
-            font-size: 2.2rem;
-            font-weight: 500;
+            font-family: 'Borel', cursive;
+            font-size: 2.4rem;
             text-decoration: none;
             color: var(--olive);
             transition: color 0.2s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            margin-top: 0.2rem;
         }
         .site-title:hover {
             color: var(--burnt-umber);
@@ -46,6 +72,7 @@
         .nav {
             display: flex;
             gap: 1rem;
+            position: relative;
         }
         .nav a {
             text-decoration: none;
@@ -53,46 +80,129 @@
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            transition: all 0.2s ease;
-            letter-spacing: 0.03em;
-            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+            font-size: 1.2rem;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav a::after {
+            content: '→';
+            margin-left: 0.5rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            pointer-events: none;
+        }
+        .nav a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
         .nav a:hover {
             color: var(--cream);
             background-color: var(--olive);
             font-weight: bold;
         }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item:hover .subnav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .subnav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            z-index: 100;
+        }
+        .subnav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .subnav a:hover {
+            background-color: var(--olive);
+            color: var(--cream);
+        }
         .container {
             display: flex;
-            gap: 3rem;
-            margin: 2rem 0 5rem;
-            padding: 2rem;
+            gap: 3.5rem;
+            margin: 0 auto 4rem;
+            padding: 3.5rem;
             border-radius: 12px;
-            transition: transform 0.2s ease;
-            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            max-width: 750px;
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(45deg, transparent, var(--olive), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .container:hover::after {
+            opacity: 1;
         }
         .container:hover {
             transform: translateY(-2px);
         }
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .container:hover .profile-image {
             transform: scale(1.02);
         }
         .intro {
             flex: 1;
+            font-size: 1.25rem;
+            line-height: 1.8;
+        }
+        .intro p {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        .intro p:last-child {
+            margin-bottom: 0;
         }
         h1, h2 {
+            font-family: 'Borel', cursive;
             color: var(--olive);
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            position: relative;
+            display: inline-block;
         }
         h1 {
             font-size: 2.8rem;
@@ -101,16 +211,40 @@
             font-size: 2.2rem;
         }
         section {
-            margin-bottom: 5rem;
-            padding: 0 1rem;
+            margin-bottom: 4rem;
+            padding: 0 1.5rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
         }
         article {
-            padding: 2rem;
+            padding: 3.5rem;
             border-radius: 12px;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 4px solid transparent;
-            margin-top: 2rem;
-            background-color: rgba(255, 255, 255, 0.5);
+            margin-top: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        article::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(45deg, transparent, var(--olive), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        article:hover::after {
+            opacity: 1;
         }
         article:hover {
             border-left-color: var(--burnt-umber);
@@ -118,12 +252,31 @@
             transform: translateX(5px);
         }
         article h3 a {
+            font-family: 'Borel', cursive;
             text-decoration: none;
             color: var(--chocolate);
-            transition: color 0.2s ease;
-            font-size: 1.5rem;
-            letter-spacing: 0.03em;
-            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.8rem;
+            letter-spacing: 0.02em;
+            font-weight: normal;
+            position: relative;
+            display: inline-block;
+        }
+        article h3 a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--olive);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        article:hover h3 a::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
         article h3 a:hover {
             color: var(--burnt-umber);
@@ -138,16 +291,96 @@
         article em {
             color: var(--burnt-umber);
         }
+        .decoration-chair {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 200px;
+            height: 200px;
+            background-color: var(--olive);
+            mask-image: url('/assets/chair.svg');
+            -webkit-mask-image: url('/assets/chair.svg');
+            mask-size: contain;
+            -webkit-mask-size: contain;
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: -1;
+            transform: rotate(-8deg);
+            transition: transform 0.4s ease;
+            filter: blur(0.5px);
+        }
+        .decoration-chair:hover {
+            transform: rotate(0deg);
+        }
+        .decoration-pothos-left,
+        .decoration-pothos-right {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background-color: var(--pothos-color);
+            mask-image: url('/assets/pothos.svg');
+            -webkit-mask-image: url('/assets/pothos.svg');
+            mask-size: contain;
+            -webkit-mask-size: contain;
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: -1;
+            transition: transform 0.5s ease;
+            filter: blur(0.5px);
+        }
+        .decoration-pothos-left {
+            top: 2rem;
+            left: 2rem;
+            transform: rotate(45deg) scale(1);
+        }
+        .decoration-pothos-right {
+            top: 2rem;
+            right: 2rem;
+            transform: rotate(-45deg) scale(1);
+        }
+        @media (min-width: 1200px) {
+            .decoration-pothos-left {
+                transform: rotate(45deg) scale(1.2);
+            }
+            .decoration-pothos-right {
+                transform: rotate(-45deg) scale(1.2);
+            }
+        }
     </style>
 </head>
 <body>
+
+    <div class="decoration-dandelion-left"></div>
+    <div class="decoration-dandelion-right"></div>
     <header class="site-header">
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
-            <a href="/projects/index.html">Projects</a>
-            <a href="/blogs/index.html">Blog</a>
-            <a href="/about/index.html">About Me</a>
-            <a href="https://github.com/itsmhyles">GitHub</a>
+            <div class="nav-item">
+                <a href="/projects/index.html">Projects</a>
+            </div>
+            <div class="nav-item">
+                <a href="/blogs/index.html">Blog</a>
+                <div class="subnav">
+                    <a href="/blogs/index.html">Thoughts</a>
+                    <a href="/blogs/mhyles-list/books.html">Books</a>
+                    <a href="/blogs/mhyles-list/films.html">Films</a>
+                    <a href="/blogs/mhyles-list/food.html">Food</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/about/index.html">About Me</a>
+            </div>
+            <div class="nav-item">
+                <a href="https://github.com/itsmhyles">GitHub</a>
+            </div>
         </nav>
     </header>
 
@@ -155,7 +388,7 @@
         <img src="assets/Mhyles Professional Photo.jpeg" alt="Mhyles Roque" class="profile-image">
         <div class="intro">
             <h1>Hi friends!</h1>
-            <p>I'm Mhyles, and welcome to my page.</p>
+            <p>I'm <span style="color: var(--chocolate); font-weight: 500;">Mhyles</span>, and welcome to my page.</p>
             <p>Presently, I'm pursuing Software Development as a graduate student in Boston. I previously worked in strategy, finance, data, and product, mostly in the tech start-up scene.</p>
             <p>My passion lies in data science and software development, particularly at the intersection of AI applications and economic policies. I thrive on building innovative products and am eager to connect for discussions or collaborations—let's chat!</p>
         </div>
@@ -173,8 +406,12 @@
     <section id="blog">
         <h2>Latest Posts</h2>
         <article>
-            <h3><a href="/blogs/index.html" style="text-decoration: none; color: var(--chocolate);">On Switching to Computer Science</a></h3>
-            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
+            <h3><a href="/blogs/twenty-four.html" style="text-decoration: none; color: var(--chocolate);">Twenty Four</a></h3>
+            <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
+        </article>
+        <article>
+            <h3><a href="/blogs/mhyles-list.html" style="text-decoration: none; color: var(--chocolate);">Mhyles List</a></h3>
+            <p>A curated collection of books, films, and cafes that have left an impression on me. From thought-provoking reads to cozy spots in Boston.</p>
         </article>
     </section>
     <script src="/scripts/cursor.js"></script>

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cream: #FFFAF0;
+            --cream: #FFFFF8;
             --olive: #3D441E;
             --chocolate: #8B4513;
             --burnt-umber: #8B2500;
@@ -39,9 +39,9 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 3rem;
             color: var(--text);
             background-color: var(--cream);
             font-size: 1.2rem;
@@ -53,8 +53,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4rem;
-            padding: 1rem 0;
+            margin-bottom: 5rem;
+            padding: 1.5rem 0;
             border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
@@ -71,6 +71,7 @@
         .nav {
             display: flex;
             gap: 1rem;
+            position: relative;
         }
         .nav a {
             text-decoration: none;
@@ -78,24 +79,77 @@
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             letter-spacing: 0.02em;
             font-size: 1.2rem;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav a::after {
+            content: '→';
+            margin-left: 0.5rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            pointer-events: none;
+        }
+        .nav a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
         .nav a:hover {
             color: var(--cream);
             background-color: var(--olive);
             font-weight: bold;
         }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item:hover .subnav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .subnav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            z-index: 100;
+        }
+        .subnav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .subnav a:hover {
+            background-color: var(--olive);
+            color: var(--cream);
+        }
         main {
-            padding: 0 1rem;
+            padding: 0 1.5rem;
+            max-width: 750px;
+            margin: 0 auto;
         }
         h1 {
             font-family: 'Borel', cursive;
             color: var(--olive);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
             font-size: 3.2rem;
             line-height: 1.2;
+            text-align: center;
         }
         h2 {
             font-family: 'Borel', cursive;
@@ -106,19 +160,26 @@
         }
         .blog-content {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
+            padding: 3rem;
             border-radius: 12px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .blog-content:hover {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
         }
         .post-date {
             color: var(--burnt-umber);
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: block;
             font-style: italic;
             letter-spacing: 0.02em;
+            text-align: center;
         }
         .substack-button {
             display: inline-block;
@@ -143,10 +204,24 @@
     <header class="site-header">
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
-            <a href="/projects/index.html">Projects</a>
-            <a href="/blogs/index.html">Blog</a>
-            <a href="/about/index.html">About Me</a>
-            <a href="https://github.com/itsmhyles">GitHub</a>
+            <div class="nav-item">
+                <a href="/projects/index.html">Projects</a>
+            </div>
+            <div class="nav-item">
+                <a href="/blogs/index.html">Blog</a>
+                <div class="subnav">
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
+                    <a href="/blogs/mhyles-list/books.html">Books</a>
+                    <a href="/blogs/mhyles-list/films.html">Films</a>
+                    <a href="/blogs/mhyles-list/food.html">Food</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/about/index.html">About Me</a>
+            </div>
+            <div class="nav-item">
+                <a href="https://github.com/itsmhyles">GitHub</a>
+            </div>
         </nav>
     </header>
 
@@ -169,7 +244,7 @@
             <p>I've been feeling anxious these days- and while anxiety has been a frequent companion, often I can pinpoint exactly where it stems from, and how to move past it. But this anxiety is different- it's an anxiety paired with a dash of despair, of longing, which granted may be a much better thing as opposed to resignation, but how does one sustain and transform this anxiety into collective action?</p>
             <p>I am anxious with the state of our affairs, and while I am inclined to preface and avoid such statements, it appears cowardly to me, which I do not want to be. Optimism can only move you forward when you fail to observe your environment or perhaps when you've long accepted your doom. When you think about it that way, it seems ironic that once again, the middle class are stuck with the weight of both parties, which is both a privilege and a curse, and perhaps an idea worth revisiting, which surely has already been historically prevalent.</p>
             <p>This sounds like nothing but a ramble, yet truly, if the recent images circling the media does not terrify you, perhaps you should ask yourself how long your privilege can sustain you.</p>
-            <a href="https://mhyles.substack.com/p/writing-for-myself" class="substack-button" target="_blank">Read More on My Substack</a>
+            <a href="https://mhyles.substack.com/" class="substack-button">Follow my Substack</a>
         </div>
     </main>
     <script src="/scripts/cursor.js"></script>

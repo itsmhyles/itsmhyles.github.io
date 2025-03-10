@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Stem -->
+    <path d="M60 180C60 180 58 120 60 100C62 80 65 60 60 40" stroke="#3D441E" stroke-width="2" stroke-linecap="round"/>
+    <!-- Small leaves on stem -->
+    <path d="M60 120C60 120 70 110 80 115M60 100C60 100 50 90 40 95M60 80C60 80 70 70 80 75M60 60C60 60 50 50 40 55" stroke="#3D441E" stroke-width="2" stroke-linecap="round"/>
+    <!-- Dandelion head -->
+    <g transform="translate(60 40)">
+        <!-- Seed cluster -->
+        <circle cx="0" cy="0" r="15" fill="#3D441E" fill-opacity="0.1"/>
+        <!-- Individual seeds with stems -->
+        <g>
+            <!-- Main seeds -->
+            <g transform="rotate(0)">
+                <path d="M0 0L0 -25" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -25L2 -28L0 -26L-2 -28L0 -25" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(30)">
+                <path d="M0 0L0 -22" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -22L2 -25L0 -23L-2 -25L0 -22" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(60)">
+                <path d="M0 0L0 -20" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -20L2 -23L0 -21L-2 -23L0 -20" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(90)">
+                <path d="M0 0L0 -23" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -23L2 -26L0 -24L-2 -26L0 -23" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(120)">
+                <path d="M0 0L0 -21" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -21L2 -24L0 -22L-2 -24L0 -21" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(150)">
+                <path d="M0 0L0 -24" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -24L2 -27L0 -25L-2 -27L0 -24" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(180)">
+                <path d="M0 0L0 -22" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -22L2 -25L0 -23L-2 -25L0 -22" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(210)">
+                <path d="M0 0L0 -25" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -25L2 -28L0 -26L-2 -28L0 -25" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(240)">
+                <path d="M0 0L0 -23" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -23L2 -26L0 -24L-2 -26L0 -23" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(270)">
+                <path d="M0 0L0 -21" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -21L2 -24L0 -22L-2 -24L0 -21" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(300)">
+                <path d="M0 0L0 -24" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -24L2 -27L0 -25L-2 -27L0 -24" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+            <g transform="rotate(330)">
+                <path d="M0 0L0 -22" stroke="#3D441E" stroke-width="1" stroke-linecap="round"/>
+                <path d="M0 -22L2 -25L0 -23L-2 -25L0 -22" fill="#3D441E" fill-opacity="0.8"/>
+            </g>
+        </g>
+    </g>
+</svg>

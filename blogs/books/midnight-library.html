@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Mhyles Roque</title>
+    <title>The Midnight Library - Book Review</title>
     <link rel="stylesheet" href="/styles/cursor.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,19 +15,7 @@
             --text: #000000;
             --grid-color: rgba(61, 68, 30, 0.06);
         }
-        p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            color: var(--text);
-        }
-        p:last-child {
-            margin-bottom: 0;
-        }
-        p em {
-            color: var(--burnt-umber);
-            font-style: italic;
-        }
+        
         body::before {
             content: '';
             position: fixed;
@@ -155,95 +143,75 @@
             max-width: 750px;
             margin: 0 auto;
         }
+        .book-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
         h1 {
             font-family: 'Borel', cursive;
             color: var(--olive);
-            margin-bottom: 3.5rem;
+            margin-bottom: 1rem;
             font-size: 3.2rem;
             line-height: 1.2;
-            text-align: center;
+        }
+        .book-meta {
+            color: var(--chocolate);
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+        .book-cover {
+            max-width: 300px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         article {
-            margin: 3rem 0 6rem;
+            margin: 0 0 4rem;
             padding: 3.5rem;
             border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-decoration: none;
-            cursor: pointer;
             position: relative;
-            overflow: hidden;
-            border-left: 4px solid transparent;
-        }
-        article::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 2px;
-            background: linear-gradient(45deg, transparent, var(--olive), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        article:hover::after {
-            opacity: 1;
-        }
-        article:last-child {
-            margin-bottom: 4rem;
-        }
-        article a {
-            text-decoration: none;
-            color: inherit;
-        }
-        article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
-            background-color: rgba(255, 255, 255, 0.98);
         }
         article h2 {
             font-family: 'Borel', cursive;
             color: var(--chocolate);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        article p {
             margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            line-height: 1.3;
-            transition: color 0.3s ease;
-            position: relative;
-            display: inline-block;
+            line-height: 1.8;
         }
-        article h2::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--olive);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        article:hover h2 {
-            color: var(--olive);
-        }
-        article:hover h2::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        .post-date {
-            color: var(--burnt-umber);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            display: block;
+        .review-date {
             font-style: italic;
-            letter-spacing: 0.02em;
-            text-align: center;
+            color: var(--burnt-umber);
+            text-align: right;
+            margin-top: 2rem;
+        }
+        .back-to-books {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: var(--olive);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-to-books:hover {
+            color: var(--chocolate);
+        }
+        .back-to-books::before {
+            content: '←';
+            margin-right: 0.5rem;
+        }
+        blockquote {
+            margin: 2rem 0;
+            padding-left: 2rem;
+            border-left: 3px solid var(--olive);
+            font-style: italic;
+            color: var(--chocolate);
         }
     </style>
 </head>
@@ -257,7 +225,7 @@
             <div class="nav-item">
                 <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts/index.html">Thoughts</a>
+                    <a href="/blogs/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>
                     <a href="/blogs/mhyles-list/films.html">Films</a>
                     <a href="/blogs/mhyles-list/food.html">Food</a>
@@ -273,39 +241,41 @@
     </header>
 
     <main>
-        <h1>Thoughts</h1>
+        <div class="book-header">
+            <h1>The Midnight Library</h1>
+            <div class="book-meta">by Matt Haig</div>
+            <img src="/images/books/midnight-library.jpg" alt="The Midnight Library Cover" class="book-cover">
+        </div>
         
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/twenty-four.html" style="text-decoration: none; color: inherit; display: block;" aria-label="Read blog post: Twenty Four">Twenty Four</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
+        <article>
+            <h2>Overview</h2>
+            <p>Between life and death, there exists a library. Every book represents a different life you could have lived if you had made different choices. This is the premise of Matt Haig's "The Midnight Library," a profound exploration of regret, possibility, and what makes a life worth living.</p>
+
+            <h2>Key Takeaways</h2>
+            <p>The novel masterfully illustrates how our perception of "perfect lives" often differs from reality. Through Nora's journey through different versions of her life, we learn that happiness isn't about living the most successful or adventurous life, but about finding peace and purpose in the choices we've made.</p>
+
+            <p>The book challenges our tendency to romanticize "what-if" scenarios and shows how regret often stems from an incomplete understanding of how our choices affect not just us, but those around us.</p>
+
+            <blockquote>
+                "The only way to learn is to live."
+            </blockquote>
+
+            <h2>Personal Reflection</h2>
+            <p>Reading "The Midnight Library" was a transformative experience. It made me reflect on my own "what-if" moments and helped me realize that these parallel lives we imagine are often idealized versions that ignore the complexity and challenges that come with any path we choose.</p>
+
+            <p>The book's message about the importance of being present and finding meaning in our current life, rather than constantly wondering about alternative paths, resonated deeply with me. It's a reminder that while we can't change our past choices, we can change how we view them and what we do next.</p>
+
+            <h2>Recommendation</h2>
+            <p>I would highly recommend this book to anyone grappling with life choices, feeling stuck in "what-if" scenarios, or seeking perspective on their life's journey. It's particularly impactful for those in transitional periods or facing major life decisions.</p>
+
+            <p>The book's accessible writing style, combined with its profound philosophical undertones, makes it suitable for both casual readers and those looking for deeper insights into the human experience.</p>
+
+            <div class="review-date">
+                Review written on January 15, 2024
+            </div>
         </article>
 
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/writing.html" style="text-decoration: none; color: inherit; display: block;">On Writing for Myself</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/goodness.html" style="text-decoration: none; color: inherit; display: block;">On the Basis of Goodness</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">On Switching to Computer Science</a></h2>
-            <span class="post-date">February 2025</span>
-            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
-            <p><em>Coming soon...</em></p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">Musings on Building</a></h2>
-            <span class="post-date">January 2025</span>
-            <p>Thoughts on the intersection of software development and economic policy, and how building products can create meaningful impact.</p>
-            <p><em>Coming soon...</em></p>
-        </article>
+        <a href="/blogs/mhyles-list/books.html" class="back-to-books">Back to Book List</a>
     </main>
     <script src="/scripts/cursor.js"></script>
 </body>

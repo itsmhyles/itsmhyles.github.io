@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <path d="M50,10 C65,10 75,20 75,35 C75,50 65,55 50,55 C35,55 25,50 25,35 C25,20 35,10 50,10 Z" fill="currentColor" opacity="0.9"/>
+    <path d="M40,30 C55,30 65,40 65,55 C65,70 55,75 40,75 C25,75 15,70 15,55 C15,40 25,30 40,30 Z" fill="currentColor" opacity="0.8"/>
+    <path d="M60,25 C75,25 85,35 85,50 C85,65 75,70 60,70 C45,70 35,65 35,50 C35,35 45,25 60,25 Z" fill="currentColor" opacity="0.85"/>
+    <path d="M65,45 C80,45 90,55 90,70 C90,85 80,90 65,90 C50,90 40,85 40,70 C40,55 50,45 65,45 Z" fill="currentColor" opacity="0.75"/>
+    <path d="M35,40 C50,40 60,50 60,65 C60,80 50,85 35,85 C20,85 10,80 10,65 C10,50 20,40 35,40 Z" fill="currentColor" opacity="0.7"/>
+    <path d="M48,15 Q50,35 52,55 Q54,75 50,90" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M30,45 Q45,50 60,55 Q75,60 90,65" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M25,35 Q40,40 55,45 Q70,50 85,55" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+</svg>

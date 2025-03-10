@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Mhyles Roque</title>
+    <title>Restaurant Name - Food Review</title>
     <link rel="stylesheet" href="/styles/cursor.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,19 +15,7 @@
             --text: #000000;
             --grid-color: rgba(61, 68, 30, 0.06);
         }
-        p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            color: var(--text);
-        }
-        p:last-child {
-            margin-bottom: 0;
-        }
-        p em {
-            color: var(--burnt-umber);
-            font-style: italic;
-        }
+        
         body::before {
             content: '';
             position: fixed;
@@ -155,95 +143,126 @@
             max-width: 750px;
             margin: 0 auto;
         }
+        .place-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
         h1 {
             font-family: 'Borel', cursive;
             color: var(--olive);
-            margin-bottom: 3.5rem;
+            margin-bottom: 1rem;
             font-size: 3.2rem;
             line-height: 1.2;
-            text-align: center;
+        }
+        .place-meta {
+            color: var(--chocolate);
+            font-style: italic;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .place-photo {
+            max-width: 100%;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         article {
-            margin: 3rem 0 6rem;
+            margin: 0 0 4rem;
             padding: 3.5rem;
             border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-decoration: none;
-            cursor: pointer;
             position: relative;
-            overflow: hidden;
-            border-left: 4px solid transparent;
-        }
-        article::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 2px;
-            background: linear-gradient(45deg, transparent, var(--olive), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        article:hover::after {
-            opacity: 1;
-        }
-        article:last-child {
-            margin-bottom: 4rem;
-        }
-        article a {
-            text-decoration: none;
-            color: inherit;
-        }
-        article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
-            background-color: rgba(255, 255, 255, 0.98);
         }
         article h2 {
             font-family: 'Borel', cursive;
             color: var(--chocolate);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        article p {
             margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            line-height: 1.3;
-            transition: color 0.3s ease;
-            position: relative;
-            display: inline-block;
+            line-height: 1.8;
         }
-        article h2::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--olive);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        article:hover h2 {
-            color: var(--olive);
-        }
-        article:hover h2::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        .post-date {
-            color: var(--burnt-umber);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            display: block;
+        .review-date {
             font-style: italic;
-            letter-spacing: 0.02em;
-            text-align: center;
+            color: var(--burnt-umber);
+            text-align: right;
+            margin-top: 2rem;
+        }
+        .back-to-food {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: var(--olive);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-to-food:hover {
+            color: var(--chocolate);
+        }
+        .back-to-food::before {
+            content: '←';
+            margin-right: 0.5rem;
+        }
+        .place-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+        .place-detail {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+        }
+        .place-detail strong {
+            color: var(--olive);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .rating-label {
+            color: var(--olive);
+            font-weight: 600;
+        }
+        .rating-stars {
+            color: var(--chocolate);
+            font-size: 1.2rem;
+        }
+        .must-try {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(139, 69, 19, 0.1);
+            border-radius: 8px;
+        }
+        .must-try h3 {
+            color: var(--chocolate);
+            font-family: 'Borel', cursive;
+            margin-bottom: 1rem;
+        }
+        .must-try ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .must-try li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .must-try li::before {
+            content: '•';
+            color: var(--chocolate);
+            position: absolute;
+            left: 0;
         }
     </style>
 </head>
@@ -257,7 +276,7 @@
             <div class="nav-item">
                 <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts/index.html">Thoughts</a>
+                    <a href="/blogs/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>
                     <a href="/blogs/mhyles-list/films.html">Films</a>
                     <a href="/blogs/mhyles-list/food.html">Food</a>
@@ -273,39 +292,64 @@
     </header>
 
     <main>
-        <h1>Thoughts</h1>
+        <div class="place-header">
+            <h1>[Restaurant Name]</h1>
+            <div class="place-meta">[Cuisine Type] in [Location]</div>
+            <!-- Optional: Add restaurant photo -->
+            <!-- <img src="/images/food/[restaurant-photo].jpg" alt="[Restaurant Name]" class="place-photo"> -->
+        </div>
         
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/twenty-four.html" style="text-decoration: none; color: inherit; display: block;" aria-label="Read blog post: Twenty Four">Twenty Four</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
+        <article>
+            <div class="place-details">
+                <div class="place-detail">
+                    <strong>Location</strong>
+                    [Address]
+                </div>
+                <div class="place-detail">
+                    <strong>Price Range</strong>
+                    [Price Range]
+                </div>
+                <div class="place-detail">
+                    <strong>Best For</strong>
+                    [Occasion/Meal Type]
+                </div>
+            </div>
+
+            <div class="rating">
+                <span class="rating-label">Overall Rating:</span>
+                <span class="rating-stars">[★★★★☆]</span>
+            </div>
+
+            <h2>Atmosphere</h2>
+            <p>[Description of the ambiance, decor, and overall vibe]</p>
+
+            <h2>Food & Drinks</h2>
+            <p>[Overall thoughts on the menu and what you tried]</p>
+
+            <div class="must-try">
+                <h3>Must-Try Items</h3>
+                <ul>
+                    <li>[Dish 1]</li>
+                    <li>[Dish 2]</li>
+                    <li>[Dish 3]</li>
+                </ul>
+            </div>
+
+            <h2>Service</h2>
+            <p>[Comments about the service quality]</p>
+
+            <h2>Value for Money</h2>
+            <p>[Thoughts on pricing and whether it's worth it]</p>
+
+            <h2>Tips</h2>
+            <p>[Helpful tips for future visitors - e.g., best time to visit, reservations needed, etc.]</p>
+
+            <div class="review-date">
+                Visited on [Date]
+            </div>
         </article>
 
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/writing.html" style="text-decoration: none; color: inherit; display: block;">On Writing for Myself</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/goodness.html" style="text-decoration: none; color: inherit; display: block;">On the Basis of Goodness</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">On Switching to Computer Science</a></h2>
-            <span class="post-date">February 2025</span>
-            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
-            <p><em>Coming soon...</em></p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">Musings on Building</a></h2>
-            <span class="post-date">January 2025</span>
-            <p>Thoughts on the intersection of software development and economic policy, and how building products can create meaningful impact.</p>
-            <p><em>Coming soon...</em></p>
-        </article>
+        <a href="/blogs/mhyles-list/food.html" class="back-to-food">Back to Food List</a>
     </main>
     <script src="/scripts/cursor.js"></script>
 </body>
