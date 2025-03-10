@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musings - Mhyles Roque</title>
+    <link rel="stylesheet" href="/styles/cursor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --cream: #FFFAF0;
@@ -13,7 +15,7 @@
             --text: #000000;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
@@ -30,11 +32,13 @@
             border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 2.2rem;
+            font-weight: 500;
             text-decoration: none;
             color: var(--olive);
             transition: color 0.2s ease;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
         .site-title:hover {
             color: var(--burnt-umber);
@@ -50,6 +54,8 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.2s ease;
+            letter-spacing: 0.03em;
+            font-size: 1.1rem;
         }
         .nav a:hover {
             color: var(--cream);
@@ -59,6 +65,10 @@
         h1 {
             color: var(--olive);
             margin-bottom: 2rem;
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
         p {
             color: var(--chocolate);
@@ -119,11 +129,21 @@
         <p>Short thoughts, observations, and reflections.</p>
         
         <article class="musing">
-            <time class="musing-date">March 5, 2025</time>
+            <time class="musing-date">March 10, 2025</time>
             <div class="musing-content">
-                <p>Coming soon...</p>
+                <h2><a href="/musings/writing.html" style="text-decoration: none; color: inherit; font-size: 1.8rem; font-weight: 500; letter-spacing: 0.03em;">On Writing for Myself</a></h2>
+                <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
+            </div>
+        </article>
+
+        <article class="musing">
+            <time class="musing-date">March 10, 2025</time>
+            <div class="musing-content">
+                <h2><a href="/musings/goodness.html" style="text-decoration: none; color: inherit;">On the Basis of Goodness</a></h2>
+                <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
             </div>
         </article>
     </main>
+    <script src="/scripts/cursor.js"></script>
 </body>
 </html>
