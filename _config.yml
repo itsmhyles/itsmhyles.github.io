@@ -1,0 +1,19 @@
+# Site settings
+title: itsmhyles.github.io
+author:
+  name: Mhyles Roque
+  email: mhyles@bu.edu
+description: "A collection of thoughts, reviews, and musings."
+
+# Build settings
+baseurl: "/itsmhyles.github.io"  # the subpath of your site, critical for project sites
+url: "https://itsmhyles.github.io"  # the base hostname & protocol for your site
+
+# Theme settings (if using a theme)
+remote_theme: jekyll/minima  
+
+# GitHub settings
+repository: "itsmhyles/itsmhyles.github.io"
+
+plugins:
+  - jekyll-redirect-from
