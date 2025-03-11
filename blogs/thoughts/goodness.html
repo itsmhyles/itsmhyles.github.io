@@ -16,6 +16,39 @@
             --grid-color: rgba(61, 68, 30, 0.06);
         }
         
+        .dino-decoration-1,
+        .dino-decoration-2 {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+            transition: transform 0.3s ease;
+        }
+
+        .dino-decoration-1 {
+            top: 15%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            transform: rotate(-15deg);
+        }
+
+        .dino-decoration-2 {
+            bottom: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+            transform: rotate(10deg);
+        }
+
+        body:hover .dino-decoration-1 {
+            transform: rotate(-12deg) translateY(-5px);
+        }
+
+        body:hover .dino-decoration-2 {
+            transform: rotate(12deg) translateY(-3px);
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -229,14 +262,25 @@
         <h1>On the Basis of Goodness</h1>
         <div class="blog-content">
             <span class="post-date">March 2025</span>
+            <p>What does it mean to be good? This question has puzzled philosophers, theologians, and everyday people for millennia. But perhaps we've been approaching it from the wrong angle. Instead of asking what goodness is, maybe we should ask why goodness exists at all.</p>
+            <p>From an evolutionary perspective, goodness - or what we perceive as moral behavior - likely emerged as a survival strategy. Cooperation, empathy, and altruism helped our ancestors form stronger social bonds, leading to better chances of survival and reproduction. But this raises an interesting question: if goodness is merely a product of evolution, does that make it any less meaningful?</p>
+            <p>The societal implications of this perspective are profound. Our current systems of morality and justice are built on the assumption that goodness is an absolute, universal truth. But if goodness is relative to our evolutionary history, should we reconsider how we structure our societies? More importantly, does this evolutionary view of goodness serve everyone equally, or does it perpetuate existing power structures?</p>
             <p>It is not hard to imagine how this could have gone plenty of ways, frankly speaking, I urge you to read up on it as well, I know I would after this musing. But, as we have evolved over time, so has 'goodness', and if 'goodness' is a basis for reinforcement, then is it safe for us to blindly accept the notion of goodness that we have internalized?</p>
             <p>If 'goodness' truly was necessary for our evolution, then it is not doubt that our notions of 'goodness' is tied to a societal level. If it is, is 'goodness' then a social construct that ensures order and ought to determine law? But for whose benefit? If society is to benefit from this universal set of constraints, then who benefits from society? This also detracts us from a fundamental question- does goodness have a purpose? Is 'goodness' meant to confer a benefit?</p>
             <p>It seems a political question to pose, as much as it is a philosophical one. But take it as an exercise, and ask yourself- a couple of questions, with the first being, how much of your notion of 'goodness' is a conscious decision, and how much of it is a reinforced mechanism- a byfunction of societal construct.</p>
             <p>Second, if and should a substantial portion of your answer be largely attributed to society, ask yourself if goodness ought to benefit society. If so, does society serve you? Is there a group, that society does not serve? Again, I disclaim that the purpose is not so much to question why we exist within society nor a questioning of why we partake in it. Such is a can of worms. I simply want to partake in a thought exercise of consciousness in thought.</p>
             <p>If there is a group that society does not serve - is this simply another evolutionary byproduct? Or are there other rationales to such? What do you think?</p>
-            <a href="https://mhyles.substack.com/p/on-the-basis-of-goodness-from-an" class="substack-button" target="_blank">Read More on My Substack</a>
+            <div class="substack-link">
+                <a href="https://open.substack.com/pub/mhyles/p/on-the-basis-of-goodness?r=8gub7&utm_campaign=post&utm_medium=web" class="substack-button" target="_blank">Read More on My Substack</a>
+            </div>
         </div>
     </main>
     <script src="/scripts/cursor.js"></script>
+    <svg class="dino-decoration-1" viewBox="0 0 500 500" fill="var(--olive)">
+        <path d="M250 50c-20 0-40 10-50 25-10-15-30-25-50-25-33 0-60 27-60 60 0 20 10 38 25 48-15 10-25 30-25 50 0 33 27 60 60 60 20 0 38-10 48-25 10 15 30 25 50 25s40-10 50-25c10 15 30 25 50 25 33 0 60-27 60-60 0-20-10-38-25-48 15-10 25-30 25-50 0-33-27-60-60-60-20 0-40 10-50 25-10-15-30-25-50-25zm0 40c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
+    </svg>
+    <svg class="dino-decoration-2" viewBox="0 0 500 500" fill="var(--olive)">
+        <path d="M250 50c-20 0-40 10-50 25-10-15-30-25-50-25-33 0-60 27-60 60 0 20 10 38 25 48-15 10-25 30-25 50 0 33 27 60 60 60 20 0 38-10 48-25 10 15 30 25 50 25s40-10 50-25c10 15 30 25 50 25 33 0 60-27 60-60 0-20-10-38-25-48 15-10 25-30 25-50 0-33-27-60-60-60-20 0-40 10-50 25-10-15-30-25-50-25zm0 40c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
+    </svg>
 </body>
 </html>

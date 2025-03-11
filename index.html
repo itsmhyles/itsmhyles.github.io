@@ -11,6 +11,7 @@
             --cream: #FFFFF8;
             --olive: #3D441E;
             --chocolate: #8B4513;
+            --dandelion: #3D441E;
             --burnt-umber: #8B2500;
             --text: #000000;
             --grid-color: rgba(61, 68, 30, 0.06);
@@ -291,75 +292,66 @@
         article em {
             color: var(--burnt-umber);
         }
-        .decoration-chair {
+        .decoration-dandelion-left,
+        .decoration-dandelion-right {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 200px;
-            height: 200px;
-            background-color: var(--olive);
-            mask-image: url('/assets/chair.svg');
-            -webkit-mask-image: url('/assets/chair.svg');
-            mask-size: contain;
-            -webkit-mask-size: contain;
-            mask-repeat: no-repeat;
-            -webkit-mask-repeat: no-repeat;
-            mask-position: center;
-            -webkit-mask-position: center;
+            width: 180px;
+            height: 360px;
+            z-index: -1;
             opacity: 0.12;
             pointer-events: none;
-            z-index: -1;
-            transform: rotate(-8deg);
-            transition: transform 0.4s ease;
-            filter: blur(0.5px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: blur(0.3px);
         }
-        .decoration-chair:hover {
-            transform: rotate(0deg);
+
+        .decoration-dandelion-left {
+            left: 3rem;
+            bottom: 1rem;
+            transform: rotate(-12deg);
         }
-        .decoration-pothos-left,
-        .decoration-pothos-right {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            background-color: var(--pothos-color);
-            mask-image: url('/assets/pothos.svg');
-            -webkit-mask-image: url('/assets/pothos.svg');
-            mask-size: contain;
-            -webkit-mask-size: contain;
-            mask-repeat: no-repeat;
-            -webkit-mask-repeat: no-repeat;
-            mask-position: center;
-            -webkit-mask-position: center;
-            opacity: 0.8;
-            pointer-events: none;
-            z-index: -1;
-            transition: transform 0.5s ease;
-            filter: blur(0.5px);
+
+        .decoration-dandelion-right {
+            right: 3rem;
+            bottom: 1rem;
+            transform: rotate(12deg) scaleX(-1);
         }
-        .decoration-pothos-left {
-            top: 2rem;
-            left: 2rem;
-            transform: rotate(45deg) scale(1);
+
+        .container:hover ~ .decoration-dandelion-left {
+            transform: rotate(-15deg) translateY(-12px);
+            opacity: 0.18;
         }
-        .decoration-pothos-right {
-            top: 2rem;
-            right: 2rem;
-            transform: rotate(-45deg) scale(1);
+
+        .container:hover ~ .decoration-dandelion-right {
+            transform: rotate(15deg) translateY(-12px) scaleX(-1);
+            opacity: 0.18;
         }
-        @media (min-width: 1200px) {
-            .decoration-pothos-left {
-                transform: rotate(45deg) scale(1.2);
-            }
-            .decoration-pothos-right {
-                transform: rotate(-45deg) scale(1.2);
+
+        @media (max-width: 1200px) {
+            .decoration-dandelion-left,
+            .decoration-dandelion-right {
+                opacity: 0.08;
+                width: 160px;
+                height: 320px;
             }
         }
+
+        @media (max-width: 768px) {
+            .decoration-dandelion-left,
+            .decoration-dandelion-right {
+                display: none;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="decoration-dandelion-left"></div>
-    <div class="decoration-dandelion-right"></div>
+    <div class="decoration-dandelion-left">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
+    <div class="decoration-dandelion-right">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
     <header class="site-header">
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
@@ -369,7 +361,7 @@
             <div class="nav-item">
                 <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/index.html">Thoughts</a>
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>
                     <a href="/blogs/mhyles-list/films.html">Films</a>
                     <a href="/blogs/mhyles-list/food.html">Food</a>

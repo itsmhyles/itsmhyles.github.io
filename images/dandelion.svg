@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="400" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Stem -->
+    <path d="M100 400C100 400 95 300 100 250C105 200 110 150 100 100" stroke="currentColor" stroke-width="2"/>
+    
+    <!-- Leaves -->
+    <path d="M100 350C100 350 80 340 70 330C60 320 65 310 75 315C85 320 100 350 100 350Z" fill="currentColor"/>
+    <path d="M100 300C100 300 120 290 130 280C140 270 135 260 125 265C115 270 100 300 100 300Z" fill="currentColor"/>
+    <path d="M100 250C100 250 80 240 70 230C60 220 65 210 75 215C85 220 100 250 100 250Z" fill="currentColor"/>
+    
+    <!-- Dandelion head -->
+    <g transform="translate(100,100)">
+        <!-- Center -->
+        <circle cx="0" cy="0" r="5" fill="currentColor"/>
+        
+        <!-- Seeds -->
+        <g>
+            <!-- First ring -->
+            <g transform="rotate(0)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(45)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(90)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(135)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(180)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(225)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(270)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(315)">
+                <path d="M0 -10C-2 -15 0 -20 2 -15C4 -10 0 -10 0 -10Z" fill="currentColor"/>
+            </g>
+            
+            <!-- Second ring -->
+            <g transform="rotate(22.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(67.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(112.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(157.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(202.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(247.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(292.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(337.5)">
+                <path d="M0 -20C-3 -25 0 -30 3 -25C6 -20 0 -20 0 -20Z" fill="currentColor"/>
+            </g>
+            
+            <!-- Third ring -->
+            <g transform="rotate(11.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(56.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(101.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(146.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(191.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(236.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(281.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+            <g transform="rotate(326.25)">
+                <path d="M0 -30C-4 -35 0 -40 4 -35C8 -30 0 -30 0 -30Z" fill="currentColor"/>
+            </g>
+        </g>
+    </g>
+</svg>
