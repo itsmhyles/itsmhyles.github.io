@@ -296,6 +296,74 @@
             opacity: 0.18;
         }
 
+        .recommendations {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .recommendation {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(61, 68, 30, 0.1);
+        }
+
+        .recommendation:hover {
+            transform: translateX(5px);
+            background-color: rgba(255, 255, 255, 0.98);
+            border-color: var(--olive);
+        }
+
+        .recommendation-icon {
+            font-size: 1.5rem;
+            min-width: 2rem;
+            text-align: center;
+        }
+
+        .recommendation-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .recommendation-label {
+            font-size: 0.9rem;
+            color: var(--olive);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .recommendation-title {
+            text-decoration: none;
+            color: var(--chocolate);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .recommendation-title:hover {
+            color: var(--burnt-umber);
+        }
+
+        .recommendation-details {
+            font-size: 0.95rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .recommendation-date {
+            font-size: 0.9rem;
+            color: var(--burnt-umber);
+            font-style: italic;
+        }
+
         @media (max-width: 1200px) {
             .decoration-dandelion-left,
             .decoration-dandelion-right {
@@ -332,9 +400,9 @@
                 <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
                     <a href="/blogs/thoughts/index.html">Thoughts</a>
-                    <a href="/blogs/mhyles-list/books.html">Books</a>
-                    <a href="/blogs/mhyles-list/films.html">Films</a>
-                    <a href="/blogs/mhyles-list/food.html">Food</a>
+                    <a href="/blogs/books/index.html">Books</a>
+                    <a href="/blogs/films/index.html">Films</a>
+                    <a href="/blogs/food/index.html">Food</a>
                 </div>
             </div>
             <div class="nav-item">
@@ -359,7 +427,7 @@
     <section id="projects">
         <h2>Ongoing Projects</h2>
         <article>
-            <h3><a href="/projects/index.html" style="text-decoration: none; color: var(--chocolate);">Nereus</a></h3>
+            <h3><a href="/projects/2024/11/nereus.html" style="text-decoration: none; color: var(--chocolate);">Nereus</a></h3>
             <p>Nereus is a mini-project which examines the complex relationships between homelessness rates, climate conditions, and political ideologies across American states. The research was initiated to investigate the observed correlation between Democratic-leaning ('blue') states and higher rates of homelessness, while exploring the public's strong reactions to this phenomenon.</p>
             <p><em>Fun Fact: Nereus was named after the Greek Sea God who in Percy Jackson appears as a homeless man on the docks of San Francisco</em></p>
         </article>
@@ -368,12 +436,39 @@
     <section id="blog">
         <h2>Latest Posts</h2>
         <article>
-            <h3><a href="/blogs/twenty-four.html" style="text-decoration: none; color: var(--chocolate);">Twenty Four</a></h3>
+            <h3><a href="/blogs/thoughts/twenty-four.html" style="text-decoration: none; color: var(--chocolate);">Twenty Four</a></h3>
             <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
         </article>
-        <article>
-            <h3><a href="/blogs/mhyles-list.html" style="text-decoration: none; color: var(--chocolate);">Mhyles List</a></h3>
-            <p>A curated collection of books, films, and cafes that have left an impression on me. From thought-provoking reads to cozy spots in Boston.</p>
+        <article class="mhyles-list">
+            <h3>Mhyles List</h3>
+            <p>A curated collection of <a href="/blogs/books/index.html" style="text-decoration: none; color: var(--chocolate);">books</a>, <a href="/blogs/films/index.html" style="text-decoration: none; color: var(--chocolate);">films</a>, and <a href="/blogs/food/index.html" style="text-decoration: none; color: var(--chocolate);">food spots</a> that have left an impression on me.</p>
+            <div class="recommendations">
+                <div class="recommendation">
+                    <span class="recommendation-icon">📖</span>
+                    <div class="recommendation-content">
+                        <span class="recommendation-label">Latest Read</span>
+                        <a href="/blogs/books/index.html#recent-reads" class="recommendation-title"><em>Martyr!</em> by Kaveh Akbar</a>
+                        <span class="recommendation-date">March 2025</span>
+                    </div>
+                </div>
+                <div class="recommendation">
+                    <span class="recommendation-icon">🎬</span>
+                    <div class="recommendation-content">
+                        <span class="recommendation-label">Latest Watch</span>
+                        <a href="/blogs/films/index.html#recent-watches" class="recommendation-title"><em>Poor Things</em></a>
+                        <span class="recommendation-date">March 2025</span>
+                    </div>
+                </div>
+                <div class="recommendation">
+                    <span class="recommendation-icon">🍳</span>
+                    <div class="recommendation-content">
+                        <span class="recommendation-label">Latest Spot</span>
+                        <a href="/blogs/food/index.html#cambridge" class="recommendation-title"><em>Yume Ga Arukara</em></a>
+                        <span class="recommendation-details">Udon in Cambridge</span>
+                        <span class="recommendation-date">March 2025</span>
+                    </div>
+                </div>
+            </div>
         </article>
     </section>
     <script src="/scripts/cursor.js"></script>

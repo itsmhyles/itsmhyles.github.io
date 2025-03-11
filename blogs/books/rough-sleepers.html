@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rough Sleepers: Beyond Statistics - Mhyles Roque</title>
+    <link rel="stylesheet" href="/styles/cursor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FFFFF8;
+            --olive: #3D441E;
+            --chocolate: #8B4513;
+            --burnt-umber: #8B2500;
+            --text: #000000;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem;
+            color: var(--text);
+            background-color: var(--cream);
+            font-size: 1.2rem;
+        }
+
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5rem;
+            padding: 1.5rem 0;
+            border-bottom: 3px solid var(--burnt-umber);
+        }
+
+        .site-title {
+            font-family: 'Borel', cursive;
+            font-size: 2.4rem;
+            text-decoration: none;
+            color: var(--olive);
+            transition: color 0.2s ease;
+        }
+
+        .site-title:hover {
+            color: var(--burnt-umber);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Borel', cursive;
+            color: var(--olive);
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        .article-meta {
+            font-style: italic;
+            color: var(--chocolate);
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            margin-top: 3rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--olive);
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            font-style: italic;
+            background-color: rgba(61, 68, 30, 0.05);
+        }
+
+        .nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--cream);
+            background-color: var(--olive);
+        }
+
+        .subnav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover .subnav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .subnav a {
+            display: block;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem;
+                font-size: 1.1rem;
+            }
+
+            .site-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="site-title">Mhyles Roque</a>
+        <nav class="nav">
+            <div class="nav-item">
+                <a href="/projects/index.html">Projects</a>
+            </div>
+            <div class="nav-item">
+                <a href="/blogs/index.html">Blog</a>
+                <div class="subnav">
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
+                    <a href="/blogs/books/index.html">Books</a>
+                    <a href="/blogs/films/index.html">Films</a>
+                    <a href="/blogs/food/index.html">Food</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/about/index.html">About Me</a>
+            </div>
+            <div class="nav-item">
+                <a href="https://github.com/itsmhyles">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Rough Sleepers: Beyond Statistics</h1>
+            <div class="article-meta">
+                <span class="date">March 2025</span>
+                <span class="tags">Homelessness, Society, Human Stories</span>
+            </div>
+            
+            <div class="article-content">
+                <h2>Introduction</h2>
+                <p>[Draft] While working on Project Nereus, I've encountered numerous statistics about homelessness. But behind each number is a human story - one of struggle, resilience, and often, systemic failure. This piece aims to explore these personal narratives and their implications for policy-making.</p>
+
+                <h2>The Human Element</h2>
+                <p>[Draft] Statistics tell us about rates, demographics, and trends. But they don't capture the daily realities of living without stable housing - the constant search for safety, the challenge of maintaining dignity, and the struggle to access basic services.</p>
+
+                <blockquote>
+                    [Draft Quote] "Numbers can tell us how many people are experiencing homelessness, but they can't tell us how it feels to lose your home, your privacy, and often, your sense of self."
+                </blockquote>
+
+                <h2>Beyond Blue States vs Red States</h2>
+                <p>[Draft] While Project Nereus examines the correlation between political leanings and homelessness rates, the reality on the ground transcends political divisions. In every city, in every state, people experiencing homelessness face similar fundamental challenges.</p>
+
+                <h2>The Role of Community</h2>
+                <p>[Draft] Local communities often play a crucial role in supporting their homeless populations. From grassroots organizations to individual volunteers, these efforts demonstrate how collective action can create meaningful impact.</p>
+
+                <h2>Looking Forward</h2>
+                <p>[Draft] As we continue to analyze data and develop policy recommendations through Project Nereus, it's crucial to remember that behind every data point is a person with hopes, dreams, and potential. Our solutions must be both data-driven and deeply human-centered.</p>
+
+                <p><em>This article is part of my ongoing work with Project Nereus. For more information about the project's findings and recommendations, visit the <a href="/projects/2024/11/nereus.html" style="text-decoration: none; color: var(--chocolate);">project page</a>.</em></p>
+            </div>
+        </article>
+    </main>
+    <script src="/scripts/cursor.js"></script>
+</body>
+</html>

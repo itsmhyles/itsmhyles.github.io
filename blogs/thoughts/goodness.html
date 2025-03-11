@@ -17,37 +17,34 @@
             --grid-color: rgba(61, 68, 30, 0.06);
         }
         
-        .dino-decoration-1,
-        .dino-decoration-2 {
+        .decoration-dandelion-left,
+        .decoration-dandelion-right {
             position: fixed;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.08;
             pointer-events: none;
-            transition: transform 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .dino-decoration-1 {
+        .decoration-dandelion-left {
             top: 15%;
-            right: 10%;
-            width: 300px;
-            height: 300px;
-            transform: rotate(-15deg);
-        }
-
-        .dino-decoration-2 {
-            bottom: 10%;
             left: 5%;
-            width: 200px;
-            height: 200px;
-            transform: rotate(10deg);
+            width: 160px;
+            height: 320px;
         }
 
-        body:hover .dino-decoration-1 {
-            transform: rotate(-12deg) translateY(-5px);
+        .decoration-dandelion-right {
+            bottom: 10%;
+            right: 5%;
+            width: 160px;
+            height: 320px;
         }
 
-        body:hover .dino-decoration-2 {
-            transform: rotate(12deg) translateY(-3px);
+        @media (max-width: 768px) {
+            .decoration-dandelion-left,
+            .decoration-dandelion-right {
+                display: none;
+            }
         }
 
 
@@ -236,9 +233,9 @@
                 <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
                     <a href="/blogs/thoughts/index.html">Thoughts</a>
-                    <a href="/blogs/mhyles-list/books.html">Books</a>
-                    <a href="/blogs/mhyles-list/films.html">Films</a>
-                    <a href="/blogs/mhyles-list/food.html">Food</a>
+                    <a href="/blogs/books/index.html">Books</a>
+                    <a href="/blogs/films/index.html">Films</a>
+                    <a href="/blogs/food/index.html">Food</a>
                 </div>
             </div>
             <div class="nav-item">
@@ -266,11 +263,11 @@
         </div>
     </main>
     <script src="/scripts/cursor.js"></script>
-    <svg class="dino-decoration-1" viewBox="0 0 500 500" fill="var(--olive)">
-        <path d="M250 50c-20 0-40 10-50 25-10-15-30-25-50-25-33 0-60 27-60 60 0 20 10 38 25 48-15 10-25 30-25 50 0 33 27 60 60 60 20 0 38-10 48-25 10 15 30 25 50 25s40-10 50-25c10 15 30 25 50 25 33 0 60-27 60-60 0-20-10-38-25-48 15-10 25-30 25-50 0-33-27-60-60-60-20 0-40 10-50 25-10-15-30-25-50-25zm0 40c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
-    </svg>
-    <svg class="dino-decoration-2" viewBox="0 0 500 500" fill="var(--olive)">
-        <path d="M250 50c-20 0-40 10-50 25-10-15-30-25-50-25-33 0-60 27-60 60 0 20 10 38 25 48-15 10-25 30-25 50 0 33 27 60 60 60 20 0 38-10 48-25 10 15 30 25 50 25s40-10 50-25c10 15 30 25 50 25 33 0 60-27 60-60 0-20-10-38-25-48 15-10 25-30 25-50 0-33-27-60-60-60-20 0-40 10-50 25-10-15-30-25-50-25zm0 40c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
-    </svg>
+    <div class="decoration-dandelion-left">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
+    <div class="decoration-dandelion-right">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
 </body>
 </html>

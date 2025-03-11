@@ -347,48 +347,6 @@
         .profile-text {
             flex: 1;
         }
-        .other-links {
-            margin: 0 0 4rem;
-            padding: 3.5rem;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-            border-left: 4px solid var(--burnt-umber);
-        }
-        .other-links::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 2px;
-            background: linear-gradient(45deg, transparent, var(--olive), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .other-links:hover::after {
-            opacity: 1;
-        }
-        .other-links:hover {
-            background-color: rgba(255, 255, 255, 0.98);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
-        }
-        .other-links a {
-            color: var(--chocolate);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .other-links a:hover {
-            color: var(--burnt-umber);
-        }
         .contact {
             margin: 0;
             padding: 3.5rem;
@@ -443,9 +401,9 @@
                 <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
                     <a href="/blogs/thoughts/index.html">Thoughts</a>
-                    <a href="/blogs/mhyles-list/books.html">Books</a>
-                    <a href="/blogs/mhyles-list/films.html">Films</a>
-                    <a href="/blogs/mhyles-list/food.html">Food</a>
+                    <a href="/blogs/books/index.html">Books</a>
+                    <a href="/blogs/films/index.html">Films</a>
+                    <a href="/blogs/food/index.html">Food</a>
                 </div>
             </div>
             <div class="nav-item">
@@ -465,7 +423,7 @@
             <div class="profile-text">
                 <p>Hi! I'm Mhyles, a Computer Science graduate student at Boston University.</p>
                 <p>My journey began in accounting and finance, where I developed a strong foundation in analytical thinking and problem-solving. Through my work in strategy and product roles at tech startups, I discovered my passion for technology and its potential to create meaningful impact.</p>
-                <p>I write about my thoughts on technology, life, and everything in between in my <a href="/blogs/thoughts/index.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">blog</a>. You can also check out my <a href="/blogs/mhyles-list/books.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">reading list</a>, <a href="/blogs/mhyles-list/films.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">film reviews</a>, and <a href="/blogs/mhyles-list/food.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">food adventures</a>.</p>
+                <p>I write about my thoughts on technology, life, and everything in between in my <a href="/blogs/thoughts/index.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">blog</a>. You can also check out my <a href="/blogs/books/index.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">reading list</a>, <a href="/blogs/films/index.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">film reviews</a>, and <a href="/blogs/food/index.html" style="color: var(--chocolate); text-decoration: none; transition: color 0.2s ease;">food adventures</a>.</p>
             </div>
         </div>
 
@@ -478,16 +436,6 @@
                 <li>Economic Policy Analysis</li>
             </ul>
             <p>I'm always eager to connect with fellow developers, researchers, and anyone interested in the intersection of technology and economic policy. Feel free to reach out!</p>
-        </div>
-
-        <div class="other-links">
-            <h2>Other Links</h2>
-            <ul>
-                <li><a href="/blogs/mhyles-list/books.html">Reading List</a> - Book reviews and recommendations</li>
-                <li><a href="/blogs/thoughts/index.html">Thoughts</a> - Personal musings and reflections</li>
-                <li><a href="/blogs/mhyles-list/films.html">Film Reviews</a> - Movies that left an impression</li>
-                <li><a href="/blogs/mhyles-list/food.html">Food Adventures</a> - Culinary discoveries and favorites</li>
-            </ul>
         </div>
 
         <div class="contact">

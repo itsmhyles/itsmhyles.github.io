@@ -16,53 +16,34 @@
             --grid-color: rgba(61, 68, 30, 0.06);
         }
         
-        .dino-decoration-1,
-        .dino-decoration-2 {
+        .decoration-dandelion-left,
+        .decoration-dandelion-right {
             position: fixed;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.08;
             pointer-events: none;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .dino-decoration-1 {
+        .decoration-dandelion-left {
             top: 15%;
-            right: 10%;
-            width: 300px;
-            height: 300px;
-            transform: rotate(-15deg);
-            animation: bounce 8s ease-in-out infinite;
-        }
-
-        .dino-decoration-2 {
-            bottom: 10%;
             left: 5%;
-            width: 200px;
-            height: 200px;
-            transform: rotate(10deg);
-            animation: wiggle 7s ease-in-out infinite;
+            width: 160px;
+            height: 320px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: rotate(-15deg) translateY(0) scaleY(1); }
-            40% { transform: rotate(-13deg) translateY(-25px) scaleY(1.1) scaleX(0.95); }
-            60% { transform: rotate(-13deg) translateY(-25px) scaleY(1.1) scaleX(0.95); }
+        .decoration-dandelion-right {
+            bottom: 10%;
+            right: 5%;
+            width: 160px;
+            height: 320px;
         }
 
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(10deg) scaleY(1); }
-            25% { transform: rotate(15deg) scale(1.05) scaleY(0.95); }
-            75% { transform: rotate(5deg) scaleY(1.1) scaleX(0.9); }
-        }
-
-        body:hover .dino-decoration-1,
-        body:hover .dino-decoration-2 {
-            opacity: 0.2;
-        }
-
-        body:hover .dino-decoration-2 {
-            transform: rotate(12deg) translateY(-3px) scale(1.05);
-            opacity: 0.2;
+        @media (max-width: 768px) {
+            .decoration-dandelion-left,
+            .decoration-dandelion-right {
+                display: none;
+            }
         }
 
         @keyframes float {
@@ -537,9 +518,10 @@
             <div class="nav-item">
                 <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts/writing.html">On Writing for Myself</a>
-                    <a href="/blogs/thoughts/twenty-four.html">Twenty Four</a>
-                    <a href="/blogs/thoughts/goodness.html">On Goodness</a>
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
+                    <a href="/blogs/books/index.html">Books</a>
+                    <a href="/blogs/films/index.html">Films</a>
+                    <a href="/blogs/food/index.html">Food</a>
                 </div>
             </div>
             <div class="nav-item">
@@ -554,7 +536,7 @@
     <main>
         <h1>Projects</h1>
         <article class="project">
-            <h2><a href="/projects/2024/11/nereus.html">Nereus</a></h2>
+            <h2><a href="/projects/2024/11/nereus.html" style="text-decoration: none; color: var(--chocolate);">Nereus</a></h2>
             <p>Nereus is a mini-project which examines the complex relationships between homelessness rates, climate conditions, and political ideologies across American states. The research was initiated to investigate the observed correlation between Democratic-leaning ('blue') states and higher rates of homelessness, while exploring the public's strong reactions to this phenomenon.</p>
             <div class="project-meta">
                 <span class="date">November 2024</span>
@@ -564,17 +546,11 @@
         </article>
     </main>
     <script src="/scripts/cursor.js"></script>
-    <svg class="dino-decoration-1" viewBox="0 0 512 512" fill="var(--olive)">
-        <path d="M400 148c0-68-56-124-124-124S152 80 152 148c0 40 20 76 52 98-32 22-52 58-52 98 0 68 56 124 124 124s124-56 124-124c0-40-20-76-52-98 32-22 52-58 52-98zm-124-84c46 0 84 38 84 84s-38 84-84 84-84-38-84-84 38-84 84-84zm0 280c-46 0-84-38-84-84s38-84 84-84 84 38 84 84-38 84-84 84z"/>
-        <circle cx="276" cy="148" r="20"/>
-        <circle cx="276" cy="344" r="20"/>
-        <path d="M368 148c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20zm0 196c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20z"/>
-    </svg>
-    <svg class="dino-decoration-2" viewBox="0 0 512 512" fill="var(--olive)">
-        <path d="M400 148c0-68-56-124-124-124S152 80 152 148c0 40 20 76 52 98-32 22-52 58-52 98 0 68 56 124 124 124s124-56 124-124c0-40-20-76-52-98 32-22 52-58 52-98zm-124-84c46 0 84 38 84 84s-38 84-84 84-84-38-84-84 38-84 84-84zm0 280c-46 0-84-38-84-84s38-84 84-84 84 38 84 84-38 84-84 84z"/>
-        <circle cx="276" cy="148" r="20"/>
-        <circle cx="276" cy="344" r="20"/>
-        <path d="M368 148c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20zm0 196c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20z"/>
-    </svg>
+    <div class="decoration-dandelion-left">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
+    <div class="decoration-dandelion-right">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
 </body>
 </html>
