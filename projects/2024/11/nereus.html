@@ -22,7 +22,8 @@
             z-index: -1;
             opacity: 0.15;
             pointer-events: none;
-            transition: transform 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: float 6s ease-in-out infinite;
         }
 
         .dino-decoration-1 {
@@ -31,6 +32,7 @@
             width: 300px;
             height: 300px;
             transform: rotate(-15deg);
+            animation-delay: 0s;
         }
 
         .dino-decoration-2 {
@@ -39,14 +41,36 @@
             width: 200px;
             height: 200px;
             transform: rotate(10deg);
+            animation: float2 6s ease-in-out infinite;
+            animation-delay: -3s;
         }
 
         body:hover .dino-decoration-1 {
-            transform: rotate(-12deg) translateY(-5px);
+            transform: rotate(-12deg) translateY(-5px) scale(1.05);
+            opacity: 0.2;
         }
 
         body:hover .dino-decoration-2 {
-            transform: rotate(12deg) translateY(-3px);
+            transform: rotate(12deg) translateY(-3px) scale(1.05);
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(-12deg);
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: translateY(0) rotate(10deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(12deg);
+            }
         }
 
         body::before {
@@ -183,6 +207,27 @@
             font-size: 3.2rem;
             line-height: 1.2;
             text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        h1:hover::after {
+            width: 120px;
+            opacity: 1;
         }
         h2 {
             font-family: 'Borel', cursive;
@@ -190,29 +235,62 @@
             margin: 2rem 0 1.2rem;
             font-size: 2rem;
             line-height: 1.3;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--olive);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        h2:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
         .project-content {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 3rem;
+            padding: 3.5rem;
             border-radius: 12px;
-            margin-bottom: 3rem;
+            margin-bottom: 6rem;
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid transparent;
+            transform: translateX(0);
         }
         .project-content:hover {
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
-            transform: translateY(-2px);
+            border-left-color: var(--burnt-umber);
+            transform: translateX(8px);
         }
         .project-date {
             color: var(--burnt-umber);
             font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin: 1rem 0 2.5rem;
             display: block;
             font-style: italic;
             letter-spacing: 0.02em;
             text-align: center;
+            position: relative;
+        }
+        .project-date::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: var(--olive);
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.4;
         }
         .github-button {
             display: inline-block;
@@ -220,36 +298,108 @@
             color: var(--cream);
             padding: 0.8rem 1.8rem;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 4px;
             font-weight: 500;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             margin-top: 2rem;
-            font-size: 1.1rem;
-            letter-spacing: 0.03em;
+            font-size: 1.2rem;
+            letter-spacing: 0.02em;
+            position: relative;
+        }
+        .github-button::after {
+            content: '→';
+            margin-left: 0.5rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            pointer-events: none;
+        }
+        .github-button:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
         .github-button:hover {
             background-color: var(--burnt-umber);
-            transform: translateY(-2px);
+            transform: translateX(4px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         blockquote {
-            border-left: 3px solid var(--olive);
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
+            border-left: 4px solid var(--olive);
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
             font-style: italic;
             color: var(--chocolate);
+            background-color: rgba(61, 68, 30, 0.03);
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        blockquote:hover {
+            background-color: rgba(61, 68, 30, 0.05);
+            transform: translateX(4px);
         }
         code {
-            background-color: rgba(61, 68, 30, 0.1);
-            padding: 0.2rem 0.4rem;
+            background-color: rgba(61, 68, 30, 0.08);
+            padding: 0.2rem 0.6rem;
             border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9em;
+            font-family: 'SF Mono', 'Consolas', monospace;
+            font-size: 0.95em;
+            color: var(--olive);
+            transition: all 0.3s ease;
+        }
+        code:hover {
+            background-color: rgba(61, 68, 30, 0.12);
         }
         pre code {
             display: block;
-            padding: 1rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             overflow-x: auto;
             line-height: 1.6;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin: 1.2rem 0;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+        p:hover {
+            color: var(--chocolate);
+        }
+        p em {
+            color: var(--burnt-umber);
+            font-style: italic;
+        }
+        ul {
+            list-style: none;
+            padding-left: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--olive);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        ul li:hover::before {
+            transform: scale(1.5);
+            opacity: 1;
         }
     </style>
 </head>

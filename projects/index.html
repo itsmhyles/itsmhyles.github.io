@@ -22,7 +22,7 @@
             z-index: -1;
             opacity: 0.15;
             pointer-events: none;
-            transition: transform 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .dino-decoration-1 {
@@ -31,6 +31,7 @@
             width: 300px;
             height: 300px;
             transform: rotate(-15deg);
+            animation: bounce 8s ease-in-out infinite;
         }
 
         .dino-decoration-2 {
@@ -39,14 +40,47 @@
             width: 200px;
             height: 200px;
             transform: rotate(10deg);
+            animation: wiggle 7s ease-in-out infinite;
         }
 
-        body:hover .dino-decoration-1 {
-            transform: rotate(-12deg) translateY(-5px);
+        @keyframes bounce {
+            0%, 100% { transform: rotate(-15deg) translateY(0) scaleY(1); }
+            40% { transform: rotate(-13deg) translateY(-25px) scaleY(1.1) scaleX(0.95); }
+            60% { transform: rotate(-13deg) translateY(-25px) scaleY(1.1) scaleX(0.95); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(10deg) scaleY(1); }
+            25% { transform: rotate(15deg) scale(1.05) scaleY(0.95); }
+            75% { transform: rotate(5deg) scaleY(1.1) scaleX(0.9); }
+        }
+
+        body:hover .dino-decoration-1,
+        body:hover .dino-decoration-2 {
+            opacity: 0.2;
         }
 
         body:hover .dino-decoration-2 {
-            transform: rotate(12deg) translateY(-3px);
+            transform: rotate(12deg) translateY(-3px) scale(1.05);
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(-12deg);
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: translateY(0) rotate(10deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(12deg);
+            }
         }
 
         body::before {
@@ -72,7 +106,7 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 3rem;
             color: var(--text);
@@ -81,13 +115,16 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .site-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4rem;
-            padding: 1rem 0;
+            margin-bottom: 5rem;
+            padding: 1.5rem 0;
             border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
@@ -174,9 +211,43 @@
         h1 {
             font-family: 'Borel', cursive;
             color: var(--olive);
-            margin-bottom: 2.5rem;
-            font-size: 3.2rem;
-            line-height: 1.2;
+            margin-bottom: 3.5rem;
+            font-size: 3.5rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber), var(--olive));
+            background-size: 200% auto;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: all 0.4s ease;
+            animation: gradientFlow 3s ease infinite;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        h1:hover {
+            color: var(--burnt-umber);
+            transform: translateY(-2px);
+        }
+        h1:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+            opacity: 1;
         }
         main {
             padding: 0 1.5rem;
@@ -188,20 +259,70 @@
             padding: 3.5rem;
             border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid transparent;
+            border-left: 4px solid var(--olive);
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transform: translateX(0);
+            position: relative;
+            animation: contentFadeIn 0.8s ease-out forwards;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+        article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(61, 68, 30, 0.03) 100%);
+            pointer-events: none;
+        }
+        @keyframes contentFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         article:last-child {
             margin-bottom: 4rem;
         }
         article:hover {
-            border-left-color: var(--burnt-umber);
+            transform: translateY(-4px);
             background-color: rgba(255, 255, 255, 0.98);
-            transform: translateX(8px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+            border-left-width: 6px;
+        }
+        article::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--olive), var(--burnt-umber), var(--chocolate), var(--olive));
+            background-size: 300% 300%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: all 0.4s ease;
+            animation: gradientMove 6s ease infinite;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        article:hover::after {
+            opacity: 0.8;
         }
         article h2 {
             font-family: 'Borel', cursive;
@@ -210,6 +331,9 @@
             margin: 0 0 1.5rem;
             position: relative;
             display: inline-block;
+            color: var(--chocolate);
+            transition: all 0.3s ease;
+            padding-bottom: 0.5rem;
         }
         article h2::after {
             content: '';
@@ -218,10 +342,21 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: var(--olive);
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber), var(--chocolate));
+            background-size: 200% auto;
             transform: scaleX(0);
             transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            animation: titleGradient 3s ease infinite;
+        }
+        @keyframes titleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        article:hover h2 {
+            color: var(--burnt-umber);
+            transform: translateX(4px);
         }
         article:hover h2::after {
             transform: scaleX(1);
@@ -236,28 +371,159 @@
             color: var(--burnt-umber);
         }
         .project-meta {
-            margin-top: 2rem;
-            font-size: 1rem;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
             color: var(--burnt-umber);
             font-style: italic;
             letter-spacing: 0.02em;
+            text-align: right;
+            position: relative;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .project-meta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+        article:hover .project-meta::before {
+            width: 120px;
+            opacity: 0.6;
         }
         .project-meta span {
-            margin-right: 1rem;
+            padding: 0.3rem 0.8rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background-color: rgba(139, 69, 19, 0.05);
+            border-radius: 4px;
+        }
+        .project-meta span:hover {
+            color: var(--chocolate);
+            transform: translateY(-2px);
+            background-color: rgba(139, 69, 19, 0.1);
         }
         .tags {
             color: var(--chocolate);
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            margin-right: 0.5rem;
+            border-radius: 4px;
+            background-color: rgba(61, 68, 30, 0.05);
+        }
+        .tags:hover {
+            color: var(--burnt-umber);
+            background-color: rgba(139, 37, 0, 0.05);
+            transform: translateY(-1px);
+        }
+        .tags::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+            opacity: 0.5;
+        }
+        .tags:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
         article p {
-            margin-bottom: 1.5rem;
+            margin: 1.2rem 0;
             line-height: 1.8;
             font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        article p:hover {
+            color: var(--chocolate);
+            background-color: rgba(139, 69, 19, 0.02);
+        }
+        article p em {
+            color: var(--burnt-umber);
+            font-style: italic;
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
         }
         article p:last-child {
             margin-bottom: 0;
         }
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 1rem;
+            position: relative;
+        }
+        main::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(139, 69, 19, 0.03) 0%, transparent 70%),
+                      radial-gradient(circle at bottom left, rgba(61, 68, 30, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        article a {
+            text-decoration: none;
+            color: var(--olive);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background-color: rgba(61, 68, 30, 0.03);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        article a::after {
+            content: '→';
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
+            color: var(--burnt-umber);
+        }
+        article a:hover {
+            color: var(--burnt-umber);
+            background-color: rgba(139, 37, 0, 0.05);
+            transform: translateY(-1px);
+        }
+        article a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
         article em {
             color: var(--burnt-umber);
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -271,10 +537,9 @@
             <div class="nav-item">
                 <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts/index.html">Thoughts</a>
-                    <a href="/blogs/mhyles-list/books.html">Books</a>
-                    <a href="/blogs/mhyles-list/films.html">Films</a>
-                    <a href="/blogs/mhyles-list/food.html">Food</a>
+                    <a href="/blogs/thoughts/writing.html">On Writing for Myself</a>
+                    <a href="/blogs/thoughts/twenty-four.html">Twenty Four</a>
+                    <a href="/blogs/thoughts/goodness.html">On Goodness</a>
                 </div>
             </div>
             <div class="nav-item">
@@ -299,11 +564,17 @@
         </article>
     </main>
     <script src="/scripts/cursor.js"></script>
-    <svg class="dino-decoration-1" viewBox="0 0 500 500" fill="var(--olive)">
-        <path d="M250 50c-20 0-40 10-50 25-10-15-30-25-50-25-33 0-60 27-60 60 0 20 10 38 25 48-15 10-25 30-25 50 0 33 27 60 60 60 20 0 38-10 48-25 10 15 30 25 50 25s40-10 50-25c10 15 30 25 50 25 33 0 60-27 60-60 0-20-10-38-25-48 15-10 25-30 25-50 0-33-27-60-60-60-20 0-40 10-50 25-10-15-30-25-50-25zm0 40c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
+    <svg class="dino-decoration-1" viewBox="0 0 512 512" fill="var(--olive)">
+        <path d="M400 148c0-68-56-124-124-124S152 80 152 148c0 40 20 76 52 98-32 22-52 58-52 98 0 68 56 124 124 124s124-56 124-124c0-40-20-76-52-98 32-22 52-58 52-98zm-124-84c46 0 84 38 84 84s-38 84-84 84-84-38-84-84 38-84 84-84zm0 280c-46 0-84-38-84-84s38-84 84-84 84 38 84 84-38 84-84 84z"/>
+        <circle cx="276" cy="148" r="20"/>
+        <circle cx="276" cy="344" r="20"/>
+        <path d="M368 148c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20zm0 196c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20z"/>
     </svg>
-    <svg class="dino-decoration-2" viewBox="0 0 500 500" fill="var(--olive)">
-        <path d="M250 50c-20 0-40 10-50 25-10-15-30-25-50-25-33 0-60 27-60 60 0 20 10 38 25 48-15 10-25 30-25 50 0 33 27 60 60 60 20 0 38-10 48-25 10 15 30 25 50 25s40-10 50-25c10 15 30 25 50 25 33 0 60-27 60-60 0-20-10-38-25-48 15-10 25-30 25-50 0-33-27-60-60-60-20 0-40 10-50 25-10-15-30-25-50-25zm0 40c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm-100 60c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20zm200 0c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20z"/>
+    <svg class="dino-decoration-2" viewBox="0 0 512 512" fill="var(--olive)">
+        <path d="M400 148c0-68-56-124-124-124S152 80 152 148c0 40 20 76 52 98-32 22-52 58-52 98 0 68 56 124 124 124s124-56 124-124c0-40-20-76-52-98 32-22 52-58 52-98zm-124-84c46 0 84 38 84 84s-38 84-84 84-84-38-84-84 38-84 84-84zm0 280c-46 0-84-38-84-84s38-84 84-84 84 38 84 84-38 84-84 84z"/>
+        <circle cx="276" cy="148" r="20"/>
+        <circle cx="276" cy="344" r="20"/>
+        <path d="M368 148c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20zm0 196c0 11-9 20-20 20s-20-9-20-20 9-20 20-20 20 9 20 20z"/>
     </svg>
 </body>
 </html>
