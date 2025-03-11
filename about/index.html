@@ -23,11 +23,17 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url('/assets/flowers.svg');
-            background-size: 800px 800px;
+            background: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
+            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
             background-position: center center;
-            opacity: 0.12;
-            animation: floatingFlowers 120s linear infinite;
+            transform: perspective(1500px) rotateX(60deg);
+            transform-origin: center top;
+            opacity: 0.85;
+            filter: blur(0.2px);
         }
 
         @keyframes floatingFlowers {
@@ -55,9 +61,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 5rem;
-            padding: 1.5rem 0;
+            margin-bottom: 4rem;
+            padding: 1rem 0;
             border-bottom: 3px solid var(--burnt-umber);
+            gap: 3rem;
         }
         .site-title {
             font-family: 'Borel', cursive;
@@ -72,15 +79,14 @@
         }
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             position: relative;
-            align-items: center;
         }
         .nav a {
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            padding: 0.75rem 1.25rem;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
             letter-spacing: 0.02em;

@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         '/blogs/mhyles-list/films.html': '/blogs/films/index.html',
         '/blogs/mhyles-list/food': '/blogs/food/index.html',
         '/blogs/mhyles-list/food.html': '/blogs/food/index.html',
+        '/blogs/mhyles-list': '/blogs/index.html',
+        '/blogs/mhyles-list/': '/blogs/index.html',
+        '/mhyles-list': '/blogs/index.html',
+        '/mhyles-list/': '/blogs/index.html',
 
         // Section index pages with variations
         '/blogs': '/blogs/index.html',
@@ -25,15 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
         '/about': '/about/index.html',
         '/about/': '/about/index.html',
 
-        // Blog sections
+        // Blog sections with variations
         '/blogs/books': '/blogs/books/index.html',
         '/blogs/books/': '/blogs/books/index.html',
+        '/blogs/books/index': '/blogs/books/index.html',
         '/blogs/films': '/blogs/films/index.html',
         '/blogs/films/': '/blogs/films/index.html',
+        '/blogs/films/index': '/blogs/films/index.html',
         '/blogs/food': '/blogs/food/index.html',
         '/blogs/food/': '/blogs/food/index.html',
+        '/blogs/food/index': '/blogs/food/index.html',
         '/blogs/thoughts': '/blogs/thoughts/index.html',
         '/blogs/thoughts/': '/blogs/thoughts/index.html',
+        '/blogs/thoughts/index': '/blogs/thoughts/index.html',
     };
 
     // Get current path without query string
