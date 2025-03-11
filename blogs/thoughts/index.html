@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thoughts - Mhyles Roque</title>
-        <link rel="stylesheet" href="/styles/background.css">
+    <title>Projects - Mhyles Roque</title>
+    <link rel="stylesheet" href="/styles/cursor.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cream: #FFFFF8;
+            --olive: #3D441E;
+            --chocolate: #8B4513;
+            --burnt-umber: #8B2500;
+            --text: #000000;
+            --grid-color: rgba(61, 68, 30, 0.06);
+        }
         
         .decoration-dandelion-left,
         .decoration-dandelion-right {
@@ -38,11 +46,48 @@
             }
         }
 
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(-12deg);
+            }
+        }
 
+        @keyframes float2 {
+            0%, 100% {
+                transform: translateY(0) rotate(10deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(12deg);
+            }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
+            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
+            background-position: center center;
+            transform: perspective(1500px) rotateX(60deg);
+            transform-origin: center top;
+            opacity: 0.85;
+            filter: blur(0.2px);
+        }
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 3rem;
             color: var(--text);
@@ -51,13 +96,16 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .site-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4rem;
-            padding: 1rem 0;
+            margin-bottom: 5rem;
+            padding: 1.5rem 0;
             border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
@@ -141,114 +189,343 @@
             background-color: var(--olive);
             color: var(--cream);
         }
+        h1 {
+            font-family: 'Borel', cursive;
+            color: var(--olive);
+            margin-bottom: 3.5rem;
+            font-size: 3.5rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber), var(--olive));
+            background-size: 200% auto;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: all 0.4s ease;
+            animation: gradientFlow 3s ease infinite;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        h1:hover {
+            color: var(--burnt-umber);
+            transform: translateY(-2px);
+        }
+        h1:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+            opacity: 1;
+        }
         main {
             padding: 0 1.5rem;
             max-width: 750px;
             margin: 0 auto;
         }
-        h1 {
-            font-family: 'Borel', cursive;
-            color: var(--olive);
-            margin-bottom: 3.5rem;
-            font-size: 3.2rem;
-            line-height: 1.2;
-            text-align: center;
-        }
-        .blog-post {
+        article {
             margin: 3rem 0 6rem;
             padding: 3.5rem;
             border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid var(--olive);
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             position: relative;
+            animation: contentFadeIn 0.8s ease-out forwards;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             overflow: hidden;
         }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.5rem 1rem;
-            color: var(--olive);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            background-color: rgba(61, 68, 30, 0.1);
+        article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(61, 68, 30, 0.03) 100%);
+            pointer-events: none;
         }
-
-        .read-more:hover {
-            background-color: var(--olive);
-            color: var(--cream);
-            transform: translateX(5px);
+        @keyframes contentFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .blog-post::after {
+        article:last-child {
+            margin-bottom: 4rem;
+        }
+        article:hover {
+            transform: translateY(-4px);
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+            border-left-width: 6px;
+        }
+        article::after {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: 12px;
             padding: 2px;
-            background: linear-gradient(45deg, transparent, var(--olive), transparent);
+            background: linear-gradient(45deg, var(--olive), var(--burnt-umber), var(--chocolate), var(--olive));
+            background-size: 300% 300%;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: all 0.4s ease;
+            animation: gradientMove 6s ease infinite;
         }
-        .blog-post:hover::after {
-            opacity: 1;
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .blog-post:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
-            background-color: rgba(255, 255, 255, 0.98);
+        article:hover::after {
+            opacity: 0.8;
         }
-        .blog-post h2 {
+        article h2 {
             font-family: 'Borel', cursive;
-            color: var(--chocolate);
-            margin: 0 0 1rem;
-            font-size: 2rem;
+            font-size: 2.2rem;
             line-height: 1.3;
+            margin: 0 0 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--chocolate);
+            transition: all 0.3s ease;
+            padding-bottom: 0.5rem;
         }
-        .blog-post h2 a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
+        article h2::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber), var(--chocolate));
+            background-size: 200% auto;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: all 0.3s ease;
+            animation: titleGradient 3s ease infinite;
         }
-        .blog-post h2 a:hover {
-            color: var(--olive);
+        @keyframes titleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .post-date {
+        article:hover h2 {
             color: var(--burnt-umber);
+            transform: translateX(4px);
+        }
+        article:hover h2::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        article h2 a {
+            text-decoration: none;
+            color: var(--chocolate);
+            transition: color 0.2s ease;
+        }
+        article h2 a:hover {
+            color: var(--burnt-umber);
+        }
+        .project-meta {
+            margin-top: 2.5rem;
             font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: block;
+            color: var(--burnt-umber);
             font-style: italic;
+            letter-spacing: 0.02em;
+            text-align: right;
+            position: relative;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .project-meta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+        article:hover .project-meta::before {
+            width: 120px;
+            opacity: 0.6;
+        }
+        .project-meta span {
+            padding: 0.3rem 0.8rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            background-color: rgba(139, 69, 19, 0.05);
+            border-radius: 4px;
+        }
+        .project-meta span:hover {
+            color: var(--chocolate);
+            transform: translateY(-2px);
+            background-color: rgba(139, 69, 19, 0.1);
+        }
+        .tags {
+            color: var(--chocolate);
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            margin-right: 0.5rem;
+            border-radius: 4px;
+            background-color: rgba(61, 68, 30, 0.05);
+        }
+        .tags:hover {
+            color: var(--burnt-umber);
+            background-color: rgba(139, 37, 0, 0.05);
+            transform: translateY(-1px);
+        }
+        .tags::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+            opacity: 0.5;
+        }
+        .tags:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        article p {
+            margin: 1.2rem 0;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        article p:hover {
+            color: var(--chocolate);
+            background-color: rgba(139, 69, 19, 0.02);
+        }
+        article p em {
+            color: var(--burnt-umber);
+            font-style: italic;
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
+        }
+        article p:last-child {
+            margin-bottom: 0;
+        }
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 1rem;
+            position: relative;
+        }
+        main::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(139, 69, 19, 0.03) 0%, transparent 70%),
+                      radial-gradient(circle at bottom left, rgba(61, 68, 30, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        article a {
+            text-decoration: none;
+            color: var(--olive);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background-color: rgba(61, 68, 30, 0.03);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        article a::after {
+            content: '→';
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
+            color: var(--burnt-umber);
+        }
+        article a:hover {
+            color: var(--burnt-umber);
+            background-color: rgba(139, 37, 0, 0.05);
+            transform: translateY(-1px);
+        }
+        article a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        article em {
+            color: var(--burnt-umber);
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
         }
     </style>
-        <script src="/dev-redirect.js"></script>
-    <script src="/spa-redirect.js"></script>
 </head>
 <body>
     <header class="site-header">
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
             <div class="nav-item">
-                <a href="/projects">Projects</a>
+                <a href="/projects/index.html">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="/blogs/thoughts">Blog</a>
+                <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts">Thoughts</a>
-                    <a href="/blogs/books">Books</a>
-                    <a href="/blogs/films">Films</a>
-                    <a href="/blogs/food">Food</a>
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
+                    <a href="/blogs/books/index.html">Books</a>
+                    <a href="/blogs/films/index.html">Films</a>
+                    <a href="/blogs/food/index.html">Food</a>
                 </div>
             </div>
             <div class="nav-item">
-                <a href="/about">About Me</a>
+                <a href="/about/index.html">About Me</a>
             </div>
             <div class="nav-item">
                 <a href="https://github.com/itsmhyles">GitHub</a>
@@ -257,29 +534,19 @@
     </header>
 
     <main>
-        <h1>Thoughts</h1>
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/writing.html">On Writing for Myself</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
-            <a href="/blogs/thoughts/writing.html" class="read-more">Read More →</a>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/twenty-four.html">Twenty Four</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
-            <a href="/blogs/thoughts/twenty-four.html" class="read-more">Read More →</a>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="/blogs/thoughts/goodness.html">On Goodness</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
-            <a href="/blogs/thoughts/goodness.html" class="read-more">Read More →</a>
+        <h1>Projects</h1>
+        <article class="project">
+            <h2><a href="/projects/2024/11/nereus.html" style="text-decoration: none; color: var(--chocolate);">Nereus</a></h2>
+            <p>Nereus is a mini-project which examines the complex relationships between homelessness rates, climate conditions, and political ideologies across American states. The research was initiated to investigate the observed correlation between Democratic-leaning ('blue') states and higher rates of homelessness, while exploring the public's strong reactions to this phenomenon.</p>
+            <div class="project-meta">
+                <span class="date">November 2024</span>
+                <span class="tags">Data Analysis, Politics, Homelessness</span>
+            </div>
+            <p><em>Fun Fact: Nereus was named after the Greek Sea God who in Percy Jackson appears as a homeless man on the docks of San Francisco</em></p>
         </article>
     </main>
-        <div class="decoration-dandelion-left">
+    <script src="/scripts/cursor.js"></script>
+    <div class="decoration-dandelion-left">
         <img src="/images/dandelion.svg" alt="Decorative dandelion">
     </div>
     <div class="decoration-dandelion-right">
