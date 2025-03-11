@@ -5,37 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Title - Book Review</title>
     <link rel="stylesheet" href="/styles/cursor.css">
+    <link rel="stylesheet" href="/styles/background.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cream: #FFFFF8;
-            --olive: #3D441E;
-            --chocolate: #8B4513;
-            --burnt-umber: #8B2500;
-            --text: #000000;
-            --grid-color: rgba(61, 68, 30, 0.06);
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
-            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
-            background-position: center center;
-            transform: perspective(1500px) rotateX(60deg);
-            transform-origin: center top;
-            opacity: 0.85;
-            filter: blur(0.2px);
-        }
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
@@ -146,18 +118,58 @@
         .book-header {
             text-align: center;
             margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .book-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--tulip-pink) 25%, 
+                var(--tulip-pink) 75%, 
+                transparent 100%
+            );
         }
         h1 {
             font-family: 'Borel', cursive;
-            color: var(--olive);
+            color: var(--tulip-pink-dark);
             margin-bottom: 1rem;
             font-size: 3.2rem;
             line-height: 1.2;
+            text-shadow: 1px 1px 0px var(--dandelion-yellow);
         }
         .book-meta {
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
             font-style: italic;
             font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            padding: 0 2rem;
+        }
+
+        .book-meta::before,
+        .book-meta::after {
+            content: '❀';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--tulip-pink);
+            font-size: 0.9em;
+        }
+
+        .book-meta::before {
+            left: 0;
+        }
+
+        .book-meta::after {
+            right: 0;
         }
         .book-cover {
             max-width: 300px;
@@ -165,6 +177,12 @@
             display: block;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-cover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(255, 179, 186, 0.2);
         }
         article {
             margin: 0 0 4rem;
@@ -174,12 +192,18 @@
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        article:hover {
+            transform: scale(1.01);
         }
         article h2 {
             font-family: 'Borel', cursive;
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
             margin: 2rem 0 1rem;
             font-size: 1.8rem;
+            letter-spacing: 0.02em;
         }
         article p {
             margin-bottom: 1.5rem;
@@ -187,9 +211,10 @@
         }
         .review-date {
             font-style: italic;
-            color: var(--burnt-umber);
+            color: var(--dandelion-yellow-dark);
             text-align: right;
             margin-top: 2rem;
+            font-size: 1.1rem;
         }
         .back-to-books {
             display: inline-block;
@@ -200,7 +225,30 @@
             transition: color 0.3s ease;
         }
         .back-to-books:hover {
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+            
+            .book-header {
+                margin-bottom: 3rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            article {
+                padding: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .book-cover {
+                max-width: 250px;
+            }
         }
         .back-to-books::before {
             content: '←';
@@ -208,10 +256,12 @@
         }
         blockquote {
             margin: 2rem 0;
-            padding-left: 2rem;
-            border-left: 3px solid var(--olive);
+            padding: 1.5rem 2rem;
+            border-left: 3px solid var(--tulip-pink);
             font-style: italic;
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
+            background: rgba(255, 179, 186, 0.1);
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>
@@ -223,9 +273,9 @@
                 <a href="/projects/index.html">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="/blogs/index.html">Blog</a>
+                <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/index.html">Thoughts</a>
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>
                     <a href="/blogs/mhyles-list/films.html">Films</a>
                     <a href="/blogs/mhyles-list/food.html">Food</a>

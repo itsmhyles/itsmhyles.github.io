@@ -5,16 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thoughts - Mhyles Roque</title>
     <link rel="stylesheet" href="/styles/cursor.css">
+    <link rel="stylesheet" href="/styles/background.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cream: #FFFFF8;
-            --olive: #3D441E;
-            --chocolate: #8B4513;
-            --burnt-umber: #8B2500;
-            --text: #000000;
-            --grid-color: rgba(61, 68, 30, 0.06);
-        }
         
         .dino-decoration-1,
         .dino-decoration-2 {
@@ -60,26 +53,7 @@
             opacity: 0.2;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
-            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
-            background-position: center center;
-            transform: perspective(1500px) rotateX(60deg);
-            transform-origin: center top;
-            opacity: 0.85;
-            filter: blur(0.2px);
-        }
+
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
@@ -298,24 +272,24 @@
     <main>
         <h1>Thoughts</h1>
         <article class="blog-post">
-            <h2><a href="/blogs/thoughts/writing.html">On Writing for Myself</a></h2>
+            <h2><a href="writing.html">On Writing for Myself</a></h2>
             <span class="post-date">March 2025</span>
             <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
-            <a href="/blogs/thoughts/writing.html" class="read-more">Read More →</a>
+            <a href="writing.html" class="read-more">Read More →</a>
         </article>
 
         <article class="blog-post">
-            <h2><a href="/blogs/thoughts/twenty-four.html">Twenty Four</a></h2>
+            <h2><a href="twenty-four.html">Twenty Four</a></h2>
             <span class="post-date">March 2025</span>
             <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
-            <a href="/blogs/thoughts/twenty-four.html" class="read-more">Read More →</a>
+            <a href="twenty-four.html" class="read-more">Read More →</a>
         </article>
 
         <article class="blog-post">
-            <h2><a href="/blogs/thoughts/goodness.html">On Goodness</a></h2>
+            <h2><a href="goodness.html">On Goodness</a></h2>
             <span class="post-date">March 2025</span>
             <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
-            <a href="/blogs/thoughts/goodness.html" class="read-more">Read More →</a>
+            <a href="goodness.html" class="read-more">Read More →</a>
         </article>
     </main>
     <script src="/scripts/cursor.js"></script>

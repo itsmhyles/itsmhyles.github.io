@@ -5,37 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Name - Food Review</title>
     <link rel="stylesheet" href="/styles/cursor.css">
+    <link rel="stylesheet" href="/styles/background.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cream: #FFFFF8;
-            --olive: #3D441E;
-            --chocolate: #8B4513;
-            --burnt-umber: #8B2500;
-            --text: #000000;
-            --grid-color: rgba(61, 68, 30, 0.06);
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
-            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
-            background-position: center center;
-            transform: perspective(1500px) rotateX(60deg);
-            transform-origin: center top;
-            opacity: 0.85;
-            filter: blur(0.2px);
-        }
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
@@ -178,9 +150,10 @@
         }
         article h2 {
             font-family: 'Borel', cursive;
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
             margin: 2rem 0 1rem;
             font-size: 1.8rem;
+            letter-spacing: 0.02em;
         }
         article p {
             margin-bottom: 1.5rem;
@@ -188,9 +161,10 @@
         }
         .review-date {
             font-style: italic;
-            color: var(--burnt-umber);
+            color: var(--dandelion-yellow-dark);
             text-align: right;
             margin-top: 2rem;
+            font-size: 1.1rem;
         }
         .back-to-food {
             display: inline-block;
@@ -201,7 +175,30 @@
             transition: color 0.3s ease;
         }
         .back-to-food:hover {
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+            
+            .place-header {
+                margin-bottom: 3rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            article {
+                padding: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .place-details {
+                grid-template-columns: 1fr;
+            }
         }
         .back-to-food::before {
             content: '←';
@@ -220,9 +217,11 @@
             border-radius: 4px;
         }
         .place-detail strong {
-            color: var(--olive);
+            color: var(--tulip-pink-dark);
             display: block;
             margin-bottom: 0.3rem;
+            font-family: 'Borel', cursive;
+            font-size: 1.1em;
         }
         .rating {
             display: flex;
@@ -235,19 +234,22 @@
             font-weight: 600;
         }
         .rating-stars {
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
             font-size: 1.2rem;
+            letter-spacing: 0.1em;
         }
         .must-try {
             margin: 2rem 0;
             padding: 1.5rem;
-            background: rgba(139, 69, 19, 0.1);
+            background: rgba(255, 179, 186, 0.1);
             border-radius: 8px;
+            border: 1px solid var(--tulip-pink);
         }
         .must-try h3 {
-            color: var(--chocolate);
+            color: var(--tulip-pink-dark);
             font-family: 'Borel', cursive;
             margin-bottom: 1rem;
+            font-size: 1.4rem;
         }
         .must-try ul {
             list-style-type: none;
@@ -259,10 +261,11 @@
             position: relative;
         }
         .must-try li::before {
-            content: '•';
-            color: var(--chocolate);
+            content: '❀';
+            color: var(--tulip-pink);
             position: absolute;
             left: 0;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -274,9 +277,9 @@
                 <a href="/projects/index.html">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="/blogs/index.html">Blog</a>
+                <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/index.html">Thoughts</a>
+                    <a href="/blogs/thoughts/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>
                     <a href="/blogs/mhyles-list/films.html">Films</a>
                     <a href="/blogs/mhyles-list/food.html">Food</a>

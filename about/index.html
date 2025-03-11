@@ -24,17 +24,20 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
-            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
+            background-image: url('/assets/flowers.svg');
+            background-size: 800px 800px;
             background-position: center center;
-            transform: perspective(1500px) rotateX(60deg);
-            transform-origin: center top;
-            opacity: 0.85;
-            filter: blur(0.2px);
+            opacity: 0.12;
+            animation: floatingFlowers 120s linear infinite;
+        }
+
+        @keyframes floatingFlowers {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 800px 800px;
+            }
         }
         body {
             font-family: 'Cormorant Garamond', serif;
@@ -70,14 +73,15 @@
         }
         .nav {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             position: relative;
+            align-items: center;
         }
         .nav a {
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 4px;
             transition: all 0.3s ease;
             letter-spacing: 0.02em;
@@ -436,7 +440,7 @@
                 <a href="/projects/index.html">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="/blogs/index.html">Blog</a>
+                <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
                     <a href="/blogs/thoughts/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>

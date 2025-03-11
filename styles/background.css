@@ -1,0 +1,34 @@
+:root {
+    --cream: #FFFFF8;
+    --olive: #3D441E;
+    --chocolate: #8B4513;
+    --burnt-umber: #8B2500;
+    --text: #000000;
+    --tulip-pink: #FFB3BA;
+    --tulip-pink-dark: #E6A3A9;
+    --dandelion-yellow: #FFF7CC;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('/assets/flowers.svg');
+    background-size: 800px 800px;
+    background-position: center center;
+    opacity: 0.12;
+    animation: floatingFlowers 120s linear infinite;
+}
+
+@keyframes floatingFlowers {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 800px 800px;
+    }
+}

@@ -5,16 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Mhyles Roque</title>
     <link rel="stylesheet" href="/styles/cursor.css">
+    <link rel="stylesheet" href="/styles/background.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cream: #FFFFF8;
-            --olive: #3D441E;
-            --chocolate: #8B4513;
-            --burnt-umber: #8B2500;
-            --text: #000000;
-            --grid-color: rgba(61, 68, 30, 0.06);
-        }
         p {
             margin-bottom: 1.5rem;
             line-height: 1.8;
@@ -28,26 +21,7 @@
             color: var(--burnt-umber);
             font-style: italic;
         }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
-            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
-            background-position: center center;
-            transform: perspective(1500px) rotateX(60deg);
-            transform-origin: center top;
-            opacity: 0.85;
-            filter: blur(0.2px);
-        }
+
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
@@ -201,6 +175,15 @@
             text-decoration: none;
             color: inherit;
         }
+        .read-more {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .read-more:hover {
+            color: var(--burnt-umber);
+        }
         article:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
@@ -255,7 +238,7 @@
                 <a href="/projects/index.html">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="/blogs/index.html">Blog</a>
+                <a href="/blogs/thoughts/index.html">Blog</a>
                 <div class="subnav">
                     <a href="/blogs/thoughts/index.html">Thoughts</a>
                     <a href="/blogs/mhyles-list/books.html">Books</a>
@@ -276,25 +259,25 @@
         <h1>Thoughts</h1>
         
         <article class="blog-post">
-            <h2><a href="/blogs/thoughts/twenty-four.html" style="text-decoration: none; color: inherit; display: block;" aria-label="Read blog post: Twenty Four">Twenty Four</a></h2>
+            <h2><a href="/blogs/thoughts/twenty-four.html" class="read-more">Twenty Four</a></h2>
             <span class="post-date">March 2025</span>
             <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
         </article>
 
         <article class="blog-post">
-            <h2><a href="/blogs/thoughts/writing.html" style="text-decoration: none; color: inherit; display: block;">On Writing for Myself</a></h2>
+            <h2><a href="/blogs/thoughts/writing.html" class="read-more">On Writing for Myself</a></h2>
             <span class="post-date">March 2025</span>
             <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
         </article>
 
         <article class="blog-post">
-            <h2><a href="/blogs/thoughts/goodness.html" style="text-decoration: none; color: inherit; display: block;">On the Basis of Goodness</a></h2>
+            <h2><a href="/blogs/thoughts/goodness.html" class="read-more">On the Basis of Goodness</a></h2>
             <span class="post-date">March 2025</span>
             <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
         </article>
 
         <article class="blog-post">
-            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">On Switching to Computer Science</a></h2>
+            <h2><a href="#" class="read-more">On Switching to Computer Science</a></h2>
             <span class="post-date">February 2025</span>
             <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
             <p><em>Coming soon...</em></p>
