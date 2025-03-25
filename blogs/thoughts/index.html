@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Mhyles Roque</title>
-    <link rel="stylesheet" href="/styles/background.css">
+    <title>Thoughts - Mhyles Roque</title>
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="/redirects.js"></script>
-    <script src="/dev-redirect.js"></script>
-    <script src="/spa-redirect.js"></script>
+    <link rel="stylesheet" href="/styles/background.css">
     <style>
         p {
             margin-bottom: 1.5rem;
@@ -237,59 +234,74 @@
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
             <div class="nav-item">
-                <a href="../../projects/index.html">Projects</a>
+                <a href="/projects">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="index.html">Blog</a>
+                <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="index.html">Thoughts</a>
+                    <a href="/blogs/thoughts">Thoughts</a>
                     <a href="/blogs/books">Books</a>
                     <a href="/blogs/films">Films</a>
                     <a href="/blogs/food">Food</a>
                 </div>
             </div>
             <div class="nav-item">
-                <a href="../../about/index.html">About Me</a>
+                <a href="/about">About Me</a>
             </div>
             <div class="nav-item">
                 <a href="https://github.com/itsmhyles">GitHub</a>
             </div>
         </nav>
     </header>
+
     <main>
         <h1>Thoughts</h1>
-        
-        <article class="blog-post">
-            <h2><a href="twenty-four.html" class="read-more">Twenty Four</a></h2>
-            <span class="post-date">March 2025</span>
+        <article>
+            <h2>
+                <!-- Using button instead of link -->
+                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
+                      onclick="window.location='twenty-four.html'">
+                    Twenty Four
+                </span>
+            </h2>
             <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
+            <div class="post-meta">
+                <span class="date">March 2024</span>
+            </div>
         </article>
-
-        <article class="blog-post">
-            <h2><a href="blogs/thoughts/writing.html" class="read-more">On Writing for Myself</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
+        <article>
+            <h2>
+                <!-- Using button instead of link -->
+                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
+                      onclick="window.location='goodness.html'">
+                    Goodness
+                </span>
+            </h2>
+            <p>Exploring the concept of goodness and how it manifests in our daily lives, relationships, and personal growth.</p>
+            <div class="post-meta">
+                <span class="date">February 2024</span>
+            </div>
         </article>
-
-        <article class="blog-post">
-            <h2><a href="goodness.html" class="read-more">On the Basis of Goodness</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="#" class="read-more">On Switching to Computer Science</a></h2>
-            <span class="post-date">February 2025</span>
-            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
-            <p><em>Coming soon...</em></p>
-        </article>
-
-        <article class="blog-post">
-            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">Musings on Building</a></h2>
-            <span class="post-date">January 2025</span>
-            <p>Thoughts on the intersection of software development and economic policy, and how building products can create meaningful impact.</p>
-            <p><em>Coming soon...</em></p>
+        <article>
+            <h2>
+                <!-- Using button instead of link -->
+                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
+                      onclick="window.location='writing.html'">
+                    Writing
+                </span>
+            </h2>
+            <p>Thoughts on the power of writing as a tool for self-expression, learning, and connecting with others.</p>
+            <div class="post-meta">
+                <span class="date">January 2024</span>
+            </div>
         </article>
     </main>
-    </body>
+    
+    <div class="decoration-dandelion-left">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
+    <div class="decoration-dandelion-right">
+        <img src="/images/dandelion.svg" alt="Decorative dandelion">
+    </div>
+</body>
 </html>
