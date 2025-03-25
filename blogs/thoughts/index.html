@@ -3,191 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thoughts - Mhyles Roque</title>
-    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Blog - Mhyles Roque</title>
     <link rel="stylesheet" href="/styles/background.css">
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="/redirects.js"></script>
+    <script src="/dev-redirect.js"></script>
+    <script src="/spa-redirect.js"></script>
     <style>
-        :root {
-            --cream: #FFFFF8;
-            --olive: #3D441E;
-            --chocolate: #8B4513;
-            --burnt-umber: #8B2500;
-            --text: #000000;
-            --grid-color: rgba(61, 68, 30, 0.06);
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: var(--text);
         }
+        p:last-child {
+            margin-bottom: 0;
+        }
+        p em {
+            color: var(--burnt-umber);
+            font-style: italic;
+        }
+
         body {
             font-family: 'Cormorant Garamond', serif;
-            background-color: var(--cream);
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem;
             color: var(--text);
-            margin: 0;
-            padding: 0;
+            background-color: var(--cream);
+            font-size: 1.2rem;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             position: relative;
+            overflow-x: hidden;
         }
         .site-header {
-            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
-            background-color: rgba(255, 255, 248, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            margin-bottom: 4rem;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--burnt-umber);
         }
         .site-title {
             font-family: 'Borel', cursive;
-            font-size: 1.8rem;
-            color: var(--chocolate);
+            font-size: 2.4rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-        .site-title::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            color: var(--olive);
+            transition: color 0.2s ease;
+            margin-top: 0.2rem;
         }
         .site-title:hover {
             color: var(--burnt-umber);
-        }
-        .site-title:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
         }
         .nav {
             display: flex;
             gap: 1rem;
             position: relative;
         }
+        .nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+            font-size: 1.2rem;
+            position: relative;
+            white-space: nowrap;
+        }
+        .nav a::after {
+            content: '→';
+            margin-left: 0.5rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: inline-block;
+            pointer-events: none;
+        }
+        .nav a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .nav a:hover {
+            color: var(--cream);
+            background-color: var(--olive);
+            font-weight: bold;
+        }
         .nav-item {
             position: relative;
         }
-        .nav-item > a {
-            text-decoration: none;
-            color: var(--olive);
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        .nav-item > a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        .nav-item > a:hover {
-            color: var(--burnt-umber);
-        }
-        .nav-item > a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        .nav-item:hover .subnav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
         .subnav {
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: rgba(255, 255, 248, 0.98);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            min-width: 150px;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             opacity: 0;
+            visibility: hidden;
             transform: translateY(-10px);
-            pointer-events: none;
             transition: all 0.3s ease;
-        }
-        .nav-item:hover .subnav {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+            min-width: 200px;
+            z-index: 100;
         }
         .subnav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text);
             text-decoration: none;
-            color: var(--olive);
             transition: all 0.3s ease;
-            padding: 0.3rem 0.5rem;
-            border-radius: 4px;
+            border-radius: 2px;
         }
         .subnav a:hover {
-            color: var(--burnt-umber);
-            background-color: rgba(139, 37, 0, 0.05);
-            transform: translateX(3px);
+            background-color: var(--olive);
+            color: var(--cream);
+        }
+        main {
+            padding: 0 1.5rem;
+            max-width: 750px;
+            margin: 0 auto;
         }
         h1 {
             font-family: 'Borel', cursive;
-            font-size: 3.5rem;
-            color: var(--chocolate);
-            margin: 3rem 0 2rem;
+            color: var(--olive);
+            margin-bottom: 3.5rem;
+            font-size: 3.2rem;
+            line-height: 1.2;
             text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        h1::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
         }
         article {
-            max-width: 800px;
-            width: 100%;
-            padding: 2rem;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.9);
+            margin: 3rem 0 6rem;
+            padding: 3.5rem;
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            cursor: pointer;
             position: relative;
-            border-left: 4px solid var(--olive);
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        article:last-child {
-            margin-bottom: 4rem;
-        }
-        article:hover {
-            transform: translateY(-4px);
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-            border-left-width: 6px;
+            overflow: hidden;
+            border-left: 4px solid transparent;
         }
         article::after {
             content: '';
@@ -195,34 +159,47 @@
             inset: 0;
             border-radius: 12px;
             padding: 2px;
-            background: linear-gradient(45deg, var(--olive), var(--burnt-umber), var(--chocolate), var(--olive));
-            background-size: 300% 300%;
+            background: linear-gradient(45deg, transparent, var(--olive), transparent);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
-            transition: all 0.4s ease;
-            animation: gradientMove 6s ease infinite;
-        }
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            transition: opacity 0.4s ease;
         }
         article:hover::after {
-            opacity: 0.8;
+            opacity: 1;
+        }
+        article:last-child {
+            margin-bottom: 4rem;
+        }
+        article a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .read-more {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        .read-more:hover {
+            color: var(--burnt-umber);
+        }
+        article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
+            background-color: rgba(255, 255, 255, 0.98);
         }
         article h2 {
             font-family: 'Borel', cursive;
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
             font-size: 2.2rem;
             line-height: 1.3;
-            margin: 0 0 1.5rem;
+            transition: color 0.3s ease;
             position: relative;
             display: inline-block;
-            color: var(--chocolate);
-            transition: all 0.3s ease;
-            padding-bottom: 0.5rem;
         }
         article h2::after {
             content: '';
@@ -231,210 +208,27 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber), var(--chocolate));
-            background-size: 200% auto;
+            background-color: var(--olive);
             transform: scaleX(0);
             transform-origin: bottom right;
-            transition: all 0.3s ease;
-            animation: titleGradient 3s ease infinite;
-        }
-        @keyframes titleGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            transition: transform 0.3s ease;
         }
         article:hover h2 {
-            color: var(--burnt-umber);
-            transform: translateX(4px);
+            color: var(--olive);
         }
         article:hover h2::after {
             transform: scaleX(1);
             transform-origin: bottom left;
         }
-        /* Simple link styling that works */
-        article h2 a {
-            text-decoration: none;
-            color: inherit;
-            background: none;
-            padding: 0;
-            display: inline;
-        }
-        article h2 a:hover {
-            color: inherit;
-        }
-        .post-meta {
-            margin-top: 2.5rem;
-            font-size: 1.1rem;
+
+        .post-date {
             color: var(--burnt-umber);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
             font-style: italic;
             letter-spacing: 0.02em;
-            text-align: right;
-            position: relative;
-            padding-top: 1rem;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .post-meta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
-            opacity: 0.4;
-            transition: all 0.3s ease;
-        }
-        article:hover .post-meta::before {
-            width: 120px;
-            opacity: 0.6;
-        }
-        .post-meta span {
-            padding: 0.3rem 0.8rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            background-color: rgba(139, 69, 19, 0.05);
-            border-radius: 4px;
-        }
-        .post-meta span:hover {
-            color: var(--chocolate);
-            transform: translateY(-2px);
-            background-color: rgba(139, 69, 19, 0.1);
-        }
-        .tags {
-            color: var(--chocolate);
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            margin-right: 0.5rem;
-            border-radius: 4px;
-            background-color: rgba(61, 68, 30, 0.05);
-        }
-        .tags:hover {
-            color: var(--burnt-umber);
-            background-color: rgba(139, 37, 0, 0.05);
-            transform: translateY(-1px);
-        }
-        .tags::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-            opacity: 0.5;
-        }
-        .tags:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        article p {
-            margin: 1.2rem 0;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text);
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
-        article p:hover {
-            color: var(--chocolate);
-            background-color: rgba(139, 69, 19, 0.02);
-        }
-        article p em {
-            color: var(--burnt-umber);
-            font-style: italic;
-            font-family: 'Borel', cursive;
-            font-size: 1.1em;
-        }
-        article p:last-child {
-            margin-bottom: 0;
-        }
-        main {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-            padding: 1rem;
-            position: relative;
-        }
-        main::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(139, 69, 19, 0.03) 0%, transparent 70%),
-                      radial-gradient(circle at bottom left, rgba(61, 68, 30, 0.03) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-        }
-        article em {
-            color: var(--burnt-umber);
-            font-family: 'Borel', cursive;
-            font-size: 1.1em;
-        }
-        .decoration-dandelion-left {
-            position: fixed;
-            left: 2%;
-            top: 30%;
-            width: 150px;
-            opacity: 0.15;
-            transform: rotate(-15deg);
-            pointer-events: none;
-            z-index: -1;
-        }
-        .decoration-dandelion-right {
-            position: fixed;
-            right: 2%;
-            bottom: 20%;
-            width: 180px;
-            opacity: 0.15;
-            transform: rotate(15deg) scaleX(-1);
-            pointer-events: none;
-            z-index: -1;
-        }
-        .decoration-dandelion-left img, .decoration-dandelion-right img {
-            width: 100%;
-            height: auto;
-            filter: sepia(0.3);
-        }
-        @media (max-width: 768px) {
-            .site-header {
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
-            }
-            .nav {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            h1 {
-                font-size: 2.5rem;
-                margin: 2rem 0 1.5rem;
-            }
-            article {
-                padding: 1.5rem;
-            }
-            article h2 {
-                font-size: 1.8rem;
-            }
-            .decoration-dandelion-left, .decoration-dandelion-right {
-                display: none;
-            }
+            text-align: center;
         }
     </style>
 </head>
@@ -443,74 +237,59 @@
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
             <div class="nav-item">
-                <a href="/projects">Projects</a>
+                <a href="../../projects/index.html">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="/blogs/index.html">Blog</a>
+                <a href="index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts">Thoughts</a>
+                    <a href="index.html">Thoughts</a>
                     <a href="/blogs/books">Books</a>
                     <a href="/blogs/films">Films</a>
                     <a href="/blogs/food">Food</a>
                 </div>
             </div>
             <div class="nav-item">
-                <a href="/about">About Me</a>
+                <a href="../../about/index.html">About Me</a>
             </div>
             <div class="nav-item">
                 <a href="https://github.com/itsmhyles">GitHub</a>
             </div>
         </nav>
     </header>
-
     <main>
         <h1>Thoughts</h1>
-        <article>
-            <h2>
-                <!-- Using button instead of link -->
-                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
-                      onclick="window.location='twenty-four.html'">
-                    Twenty Four
-                </span>
-            </h2>
+        
+        <article class="blog-post">
+            <h2><a href="twenty-four.html" class="read-more">Twenty Four</a></h2>
+            <span class="post-date">March 2025</span>
             <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
-            <div class="post-meta">
-                <span class="date">March 2024</span>
-            </div>
         </article>
-        <article>
-            <h2>
-                <!-- Using button instead of link -->
-                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
-                      onclick="window.location='goodness.html'">
-                    Goodness
-                </span>
-            </h2>
-            <p>Exploring the concept of goodness and how it manifests in our daily lives, relationships, and personal growth.</p>
-            <div class="post-meta">
-                <span class="date">February 2024</span>
-            </div>
+
+        <article class="blog-post">
+            <h2><a href="blogs/thoughts/writing.html" class="read-more">On Writing for Myself</a></h2>
+            <span class="post-date">March 2025</span>
+            <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
         </article>
-        <article>
-            <h2>
-                <!-- Using button instead of link -->
-                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
-                      onclick="window.location='writing.html'">
-                    Writing
-                </span>
-            </h2>
-            <p>Thoughts on the power of writing as a tool for self-expression, learning, and connecting with others.</p>
-            <div class="post-meta">
-                <span class="date">January 2024</span>
-            </div>
+
+        <article class="blog-post">
+            <h2><a href="goodness.html" class="read-more">On the Basis of Goodness</a></h2>
+            <span class="post-date">March 2025</span>
+            <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
+        </article>
+
+        <article class="blog-post">
+            <h2><a href="#" class="read-more">On Switching to Computer Science</a></h2>
+            <span class="post-date">February 2025</span>
+            <p>A woefully honest tale of how an accounting undergrad who did strategy and finance pivoted into computer science after its peak.</p>
+            <p><em>Coming soon...</em></p>
+        </article>
+
+        <article class="blog-post">
+            <h2><a href="#" style="text-decoration: none; color: inherit; display: block;">Musings on Building</a></h2>
+            <span class="post-date">January 2025</span>
+            <p>Thoughts on the intersection of software development and economic policy, and how building products can create meaningful impact.</p>
+            <p><em>Coming soon...</em></p>
         </article>
     </main>
-    
-    <div class="decoration-dandelion-left">
-        <img src="/images/dandelion.svg" alt="Decorative dandelion">
-    </div>
-    <div class="decoration-dandelion-right">
-        <img src="/images/dandelion.svg" alt="Decorative dandelion">
-    </div>
-</body>
+    </body>
 </html>
