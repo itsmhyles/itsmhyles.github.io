@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thoughts - Mhyles Roque</title>
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="/redirects.js"></script>
-    <script src="/dev-redirect.js"></script>
-    <script src="/spa-redirect.js"></script>
+    <link rel="stylesheet" href="/styles/background.css">
     <style>
         :root {
             --cream: #FFFFF8;
@@ -17,256 +15,162 @@
             --text: #000000;
             --grid-color: rgba(61, 68, 30, 0.06);
         }
-        
-        .decoration-dandelion-left,
-        .decoration-dandelion-right {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.08;
-            pointer-events: none;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .decoration-dandelion-left {
-            top: 15%;
-            left: 5%;
-            width: 160px;
-            height: 320px;
-        }
-
-        .decoration-dandelion-right {
-            bottom: 10%;
-            right: 5%;
-            width: 160px;
-            height: 320px;
-        }
-
-        @media (max-width: 768px) {
-            .decoration-dandelion-left,
-            .decoration-dandelion-right {
-                display: none;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(-15deg);
-            }
-            50% {
-                transform: translateY(-15px) rotate(-12deg);
-            }
-        }
-
-        @keyframes float2 {
-            0%, 100% {
-                transform: translateY(0) rotate(10deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(12deg);
-            }
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(var(--grid-color) 0.5px, transparent 0.5px),
-                linear-gradient(90deg, var(--grid-color) 0.5px, transparent 0.5px);
-            background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
-            background-position: center center;
-            transform: perspective(1500px) rotateX(60deg);
-            transform-origin: center top;
-            opacity: 0.85;
-            filter: blur(0.2px);
-        }
         body {
             font-family: 'Cormorant Garamond', serif;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem;
-            color: var(--text);
             background-color: var(--cream);
-            font-size: 1.2rem;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
         .site-header {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 5rem;
-            padding: 1.5rem 0;
-            border-bottom: 3px solid var(--burnt-umber);
+            padding: 1.5rem 2rem;
+            background-color: rgba(255, 255, 248, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .site-title {
             font-family: 'Borel', cursive;
-            font-size: 2.4rem;
+            font-size: 1.8rem;
+            color: var(--chocolate);
             text-decoration: none;
-            color: var(--olive);
-            transition: color 0.2s ease;
-            margin-top: 0.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .site-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
         }
         .site-title:hover {
             color: var(--burnt-umber);
         }
+        .site-title:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             position: relative;
-            align-items: center;
-            justify-content: center;
-        }
-        .nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            letter-spacing: 0.02em;
-            font-size: 1.2rem;
-            position: relative;
-            white-space: nowrap;
-        }
-        .nav a::after {
-            content: '→';
-            margin-left: 0.5rem;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-            display: inline-block;
-            pointer-events: none;
-        }
-        .nav a:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .nav a:hover {
-            color: var(--cream);
-            background-color: var(--olive);
-            font-weight: bold;
         }
         .nav-item {
             position: relative;
         }
-        .nav-item:hover .subnav {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .nav-item > a {
+            text-decoration: none;
+            color: var(--olive);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        .nav-item > a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        .nav-item > a:hover {
+            color: var(--burnt-umber);
+        }
+        .nav-item > a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
         .subnav {
             position: absolute;
             top: 100%;
             left: 0;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 0.5rem;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 248, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            min-width: 150px;
             opacity: 0;
-            visibility: hidden;
             transform: translateY(-10px);
+            pointer-events: none;
             transition: all 0.3s ease;
-            min-width: 200px;
-            z-index: 100;
+        }
+        .nav-item:hover .subnav {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
         .subnav a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: var(--text);
             text-decoration: none;
+            color: var(--olive);
             transition: all 0.3s ease;
-            border-radius: 2px;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
         }
         .subnav a:hover {
-            background-color: var(--olive);
-            color: var(--cream);
+            color: var(--burnt-umber);
+            background-color: rgba(139, 37, 0, 0.05);
+            transform: translateX(3px);
         }
         h1 {
             font-family: 'Borel', cursive;
-            color: var(--olive);
-            margin-bottom: 3.5rem;
             font-size: 3.5rem;
+            color: var(--chocolate);
+            margin: 3rem 0 2rem;
             text-align: center;
             position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            transition: all 0.4s ease;
+            padding-bottom: 1rem;
         }
         h1::after {
             content: '';
             position: absolute;
-            width: 100%;
+            width: 80px;
             height: 3px;
-            bottom: -8px;
-            left: 0;
-            background: linear-gradient(90deg, var(--olive), var(--burnt-umber), var(--olive));
-            background-size: 200% auto;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: all 0.4s ease;
-            animation: gradientFlow 3s ease infinite;
-        }
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        h1:hover {
-            color: var(--burnt-umber);
-            transform: translateY(-2px);
-        }
-        h1:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-            opacity: 1;
-        }
-        main {
-            padding: 0 1.5rem;
-            max-width: 750px;
-            margin: 0 auto;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--olive), var(--burnt-umber));
         }
         article {
-            margin: 3rem 0 6rem;
-            padding: 3.5rem;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid var(--olive);
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            position: relative;
-            animation: contentFadeIn 0.8s ease-out forwards;
-            width: 100%;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            overflow: hidden;
-        }
-        article::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(61, 68, 30, 0.03) 100%);
-            pointer-events: none;
+            padding: 2rem;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            border-left: 4px solid var(--olive);
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
-        @keyframes contentFadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -347,15 +251,18 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+        /* Simple link styling that works */
         article h2 a {
             text-decoration: none;
-            color: var(--chocolate);
-            transition: color 0.2s ease;
+            color: inherit;
+            background: none;
+            padding: 0;
+            display: inline;
         }
         article h2 a:hover {
-            color: var(--burnt-umber);
+            color: inherit;
         }
-        .project-meta {
+        .post-meta {
             margin-top: 2.5rem;
             font-size: 1.1rem;
             color: var(--burnt-umber);
@@ -370,7 +277,7 @@
             gap: 1rem;
             flex-wrap: wrap;
         }
-        .project-meta::before {
+        .post-meta::before {
             content: '';
             position: absolute;
             top: 0;
@@ -381,18 +288,18 @@
             opacity: 0.4;
             transition: all 0.3s ease;
         }
-        article:hover .project-meta::before {
+        article:hover .post-meta::before {
             width: 120px;
             opacity: 0.6;
         }
-        .project-meta span {
+        .post-meta span {
             padding: 0.3rem 0.8rem;
             transition: all 0.3s ease;
             display: inline-block;
             background-color: rgba(139, 69, 19, 0.05);
             border-radius: 4px;
         }
-        .project-meta span:hover {
+        .post-meta span:hover {
             color: var(--chocolate);
             transform: translateY(-2px);
             background-color: rgba(139, 69, 19, 0.1);
@@ -474,41 +381,60 @@
             pointer-events: none;
             z-index: -1;
         }
-        article a {
-            text-decoration: none;
-            color: var(--olive);
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            background-color: rgba(61, 68, 30, 0.03);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        article a::after {
-            content: '→';
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-family: 'Borel', cursive;
-            font-size: 1.1em;
-            color: var(--burnt-umber);
-        }
-        article a:hover {
-            color: var(--burnt-umber);
-            background-color: rgba(139, 37, 0, 0.05);
-            transform: translateY(-1px);
-        }
-        article a:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
         article em {
             color: var(--burnt-umber);
             font-family: 'Borel', cursive;
             font-size: 1.1em;
+        }
+        .decoration-dandelion-left {
+            position: fixed;
+            left: 2%;
+            top: 30%;
+            width: 150px;
+            opacity: 0.15;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .decoration-dandelion-right {
+            position: fixed;
+            right: 2%;
+            bottom: 20%;
+            width: 180px;
+            opacity: 0.15;
+            transform: rotate(15deg) scaleX(-1);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .decoration-dandelion-left img, .decoration-dandelion-right img {
+            width: 100%;
+            height: auto;
+            filter: sepia(0.3);
+        }
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.5rem;
+                margin: 2rem 0 1.5rem;
+            }
+            article {
+                padding: 1.5rem;
+            }
+            article h2 {
+                font-size: 1.8rem;
+            }
+            .decoration-dandelion-left, .decoration-dandelion-right {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -540,27 +466,46 @@
     <main>
         <h1>Thoughts</h1>
         <article>
-            <h2><a href="twenty-four.html" style="text-decoration: none; color: var(--chocolate);">Twenty Four</a></h2>
+            <h2>
+                <!-- Using button instead of link -->
+                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
+                      onclick="window.location='twenty-four.html'">
+                    Twenty Four
+                </span>
+            </h2>
             <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
             <div class="post-meta">
                 <span class="date">March 2024</span>
             </div>
         </article>
         <article>
-            <h2><a href="goodness.html" style="text-decoration: none; color: var(--chocolate);">Goodness</a></h2>
+            <h2>
+                <!-- Using button instead of link -->
+                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
+                      onclick="window.location='goodness.html'">
+                    Goodness
+                </span>
+            </h2>
             <p>Exploring the concept of goodness and how it manifests in our daily lives, relationships, and personal growth.</p>
             <div class="post-meta">
                 <span class="date">February 2024</span>
             </div>
         </article>
         <article>
-            <h2><a href="writing.html" style="text-decoration: none; color: var(--chocolate);">Writing</a></h2>
+            <h2>
+                <!-- Using button instead of link -->
+                <span style="cursor: pointer; text-decoration: none; color: var(--chocolate);" 
+                      onclick="window.location='writing.html'">
+                    Writing
+                </span>
+            </h2>
             <p>Thoughts on the power of writing as a tool for self-expression, learning, and connecting with others.</p>
             <div class="post-meta">
                 <span class="date">January 2024</span>
             </div>
         </article>
     </main>
+    
     <div class="decoration-dandelion-left">
         <img src="/images/dandelion.svg" alt="Decorative dandelion">
     </div>
