@@ -52,6 +52,7 @@
             color: var(--olive);
             transition: color 0.2s ease;
             margin-top: 0.2rem;
+            white-space: nowrap; /* Add this to prevent line breaks */
         }
         .site-title:hover {
             color: var(--burnt-umber);
@@ -147,12 +148,19 @@
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-decoration: none;
-            cursor: pointer;
             position: relative;
             overflow: hidden;
             border-left: 4px solid transparent;
         }
+
+        /* Add this new style */
+        article h2 a {
+            position: relative;
+            z-index: 10; /* Higher z-index to ensure it's clickable */
+            pointer-events: auto; /* Make sure pointer events work */
+        }
+
+     
         article::after {
             content: '';
             position: absolute;
@@ -166,7 +174,10 @@
             mask-composite: exclude;
             opacity: 0;
             transition: opacity 0.4s ease;
+            z-index: 1; /* Add this lower z-index */
+            pointer-events: none; /* Add this to prevent click interference */
         }
+        
         article:hover::after {
             opacity: 1;
         }
@@ -237,19 +248,19 @@
         <a href="/" class="site-title">Mhyles Roque</a>
         <nav class="nav">
             <div class="nav-item">
-                <a href="../../projects/index.html">Projects</a>
+                <a href="/projects">Projects</a>
             </div>
             <div class="nav-item">
-                <a href="index.html">Thoughts</a>
+                <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/index.html">Thoughts</a>
+                    <a href="/blogs/thoughts">Thoughts</a>
                     <a href="/blogs/books">Books</a>
                     <a href="/blogs/films">Films</a>
                     <a href="/blogs/food">Food</a>
                 </div>
             </div>
             <div class="nav-item">
-                <a href="../../about/index.html">About Me</a>
+                <a href="/about">About Me</a>
             </div>
             <div class="nav-item">
                 <a href="https://github.com/itsmhyles">GitHub</a>
@@ -260,22 +271,24 @@
         <h1>Thoughts</h1>
         
         <article class="blog-post">
-            <h2><a href="twenty-four.html" class="read-more">Twenty Four</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>Reflections on turning 24 and viewing birthdays through a different lens - not just as celebrations of life, but as moments to evaluate the life we're living and the relationships we've nurtured.</p>
+            <h2><a href="/blogs/thoughts/twenty-four.html" class="read-more">Twenty Four</a></h2>
+            <span class="post-date">March 2024</span>
+            <p>Reflections on turning 24 and viewing birthdays through a different lens...</p>
         </article>
-
+        
         <article class="blog-post">
             <h2><a href="/blogs/thoughts/writing.html" class="read-more">On Writing for Myself</a></h2>
-            <span class="post-date">March 2025</span>
-            <p>An attempt at writing incorrigibly; exploring the anxieties of putting thoughts to paper and the value of writing simply because.</p>
+            <span class="post-date">March 2024</span>
+            <p>An attempt at writing incorrigibly...</p>
         </article>
-
+        
         <article class="blog-post">
-            <h2><a href="goodness.html" class="read-more">On the Basis of Goodness</a></h2>
-            <span class="post-date">March 2025</span>
+            <h2><a href="/blogs/thoughts/goodness.html" class="read-more">On the Basis of Goodness</a></h2>
+            <span class="post-date">March 2024</span>
             <p>A philosophical exploration of goodness from an evolutionary perspective, questioning its societal implications and whether it truly serves everyone equally.</p>
         </article>
+
+    
 
         <article class="blog-post">
             <h2><a href="#" class="read-more">On Switching to Computer Science</a></h2>

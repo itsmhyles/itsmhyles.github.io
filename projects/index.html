@@ -240,23 +240,50 @@
             max-width: 750px;
             margin: 0 auto;
         }
+
         article {
             margin: 3rem 0 6rem;
             padding: 3.5rem;
             border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid var(--olive);
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             position: relative;
-            animation: contentFadeIn 0.8s ease-out forwards;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
             overflow: hidden;
+            border-left: 4px solid transparent;
         }
+
+        /* Add this new style */
+        article h2 a {
+            text-decoration: none !important;
+            color: var(--chocolate) !important;
+            transition: color 0.2s ease;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+            background: none !important;
+            padding: 0 !important;
+            display: inline !important;
+            }
+     
+        article::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(45deg, transparent, var(--olive), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1; /* Add this lower z-index */
+            pointer-events: none; /* Add this to prevent click interference */
+        }
+
         article::before {
             content: '';
             position: absolute;
@@ -285,22 +312,6 @@
             background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
             border-left-width: 6px;
-        }
-        article::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 2px;
-            background: linear-gradient(45deg, var(--olive), var(--burnt-umber), var(--chocolate), var(--olive));
-            background-size: 300% 300%;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: all 0.4s ease;
-            animation: gradientMove 6s ease infinite;
         }
         @keyframes gradientMove {
             0% { background-position: 0% 50%; }
@@ -348,11 +359,6 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
-        article h2 a {
-            text-decoration: none;
-            color: var(--chocolate);
-            transition: color 0.2s ease;
-        }
         article h2 a:hover {
             color: var(--burnt-umber);
         }
@@ -370,6 +376,15 @@
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
+        }
+        .post-date {
+            color: var(--burnt-umber);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: block;
+            font-style: italic;
+            letter-spacing: 0.02em;
+            text-align: center;
         }
         .project-meta::before {
             content: '';
@@ -511,6 +526,18 @@
             font-family: 'Borel', cursive;
             font-size: 1.1em;
         }
+        .blog-post {
+            margin: 3rem 0 6rem;
+            padding: 3.5rem;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid transparent;
+        }
     </style>
     <script src="/redirects.js"></script>
     <script src="/dev-redirect.js"></script>
@@ -543,14 +570,15 @@
 
     <main>
         <h1>Projects</h1>
-        <article class="project">
-            <h2><a href="/projects/2024/11/nereus.html" style="text-decoration: none; color: var(--chocolate);">Nereus</a></h2>
+        <article class="blog-post">
+            <h2>
+                <a href="/projects/2024/11/nereus.html" class="read-more" 
+                   onclick="event.stopPropagation(); window.location.href='/projects/2024/11/nereus';">
+                   Nereus
+                </a>
+            </h2>
+            <span class="post-date">November 2024</span>
             <p>Nereus is a mini-project which examines the complex relationships between homelessness rates, climate conditions, and political ideologies across American states. The research was initiated to investigate the observed correlation between Democratic-leaning ('blue') states and higher rates of homelessness, while exploring the public's strong reactions to this phenomenon.</p>
-            <div class="project-meta">
-                <span class="date">November 2024</span>
-                <span class="tags">Data Analysis, Politics, Homelessness</span>
-            </div>
-            <p><em>Fun Fact: Nereus was named after the Greek Sea God who in Percy Jackson appears as a homeless man on the docks of San Francisco</em></p>
         </article>
     </main>
     <div class="decoration-dandelion-left">

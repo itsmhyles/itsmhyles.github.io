@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twenty Four - Mhyles Roque</title>
-    <link rel="stylesheet" href="/styles/background.css">
+    <title>On the Basis of Goodness - Mhyles Roque</title>
+        <link rel="stylesheet" href="/styles/background.css">
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="/redirects.js"></script>
     <script src="/dev-redirect.js"></script>
@@ -53,9 +53,9 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             line-height: 1.8;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 3rem;
             color: var(--text);
             background-color: var(--cream);
             font-size: 1.2rem;
@@ -154,14 +154,17 @@
             color: var(--cream);
         }
         main {
-            padding: 0 1rem;
+            padding: 0 1.5rem;
+            max-width: 750px;
+            margin: 0 auto;
         }
         h1 {
             font-family: 'Borel', cursive;
             color: var(--olive);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
             font-size: 3.2rem;
             line-height: 1.2;
+            text-align: center;
         }
         h2 {
             font-family: 'Borel', cursive;
@@ -172,9 +175,9 @@
         }
         .blog-content {
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -187,44 +190,38 @@
         .post-date {
             color: var(--burnt-umber);
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: block;
             font-style: italic;
             letter-spacing: 0.02em;
-        }
-        .substack-link {
-            display: flex;
-            justify-content: center;
-            margin-top: 3rem;
+            text-align: center;
         }
         .substack-button {
             display: inline-block;
             background-color: var(--olive);
             color: var(--cream);
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.8rem;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1.2rem;
-            letter-spacing: 0.02em;
-            position: relative;
-            overflow: hidden;
-        }
-        .substack-button::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-        .substack-button:hover::after {
-            transform: translateX(100%);
+            transition: all 0.2s ease;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.03em;
         }
         .substack-button:hover {
             background-color: var(--burnt-umber);
             transform: translateY(-2px);
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--chocolate);
+            padding: 1rem;
+            border-left: 3px solid var(--tulip-pink);
+            background-color: rgba(255, 179, 186, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>
@@ -238,10 +235,10 @@
             <div class="nav-item">
                 <a href="/blogs/index.html">Blog</a>
                 <div class="subnav">
-                    <a href="/blogs/thoughts/index.html">Thoughts</a>
-                    <a href="/blogs/books/index.html">Books</a>
-                    <a href="/blogs/films/index.html">Films</a>
-                    <a href="/blogs/food/index.html">Food</a>
+                    <a href="/blogs/thoughts">Thoughts</a>
+                    <a href="/blogs/books">Books</a>
+                    <a href="/blogs/films">Films</a>
+                    <a href="/blogs/food">Food</a>
                 </div>
             </div>
             <div class="nav-item">
@@ -273,8 +270,6 @@
             </div>
         </div>
     </main>
-    <script src="/dev-redirect.js"></script>
-    <script src="/spa-redirect.js"></script>
     <div class="decoration-dandelion-left">
         <img src="/images/dandelion.svg" alt="Decorative dandelion">
     </div>
