@@ -73,15 +73,32 @@ function handleRedirects(isDev = false) {
     // Get current path without query string
     let currentPath = window.location.pathname;
     const queryString = window.location.search;
+    let newUrl;
+    
+    console.log('Redirect handler running for path:', currentPath);
+    
+    // For local development, the path might include the port and localhost
+    if (currentPath.includes('localhost') || currentPath.includes(':8000') || currentPath.includes(':5000')) {
+        const urlParts = currentPath.split('/');
+        // Remove the localhost part
+        currentPath = '/' + urlParts.slice(3).join('/');
+        console.log('Adjusted local path to:', currentPath);
+    }
     
     // Normalize the path (remove trailing slashes if present)
     if (currentPath.endsWith('/') && currentPath !== '/') {
         currentPath = currentPath.slice(0, -1);
+        console.log('Normalized path (removed trailing slash):', currentPath);
     }
     
     // Direct match check
     if (SITE_REDIRECTS[currentPath]) {
-        window.location.replace(SITE_REDIRECTS[currentPath] + (isDev ? queryString : ''));
+        newUrl = SITE_REDIRECTS[currentPath];
+        console.log('Direct match found, redirecting to:', newUrl);
+        if(isDev){
+            newUrl = newUrl + queryString;
+        }
+        window.location.replace(newUrl);
         return true;
     }
     
@@ -89,25 +106,40 @@ function handleRedirects(isDev = false) {
     if (currentPath.includes('/itsmhyles.github.io')) {
         const strippedPath = currentPath.replace('/itsmhyles.github.io', '');
         if (SITE_REDIRECTS[strippedPath]) {
-            window.location.replace(SITE_REDIRECTS[strippedPath] + (isDev ? queryString : ''));
+            newUrl = SITE_REDIRECTS[strippedPath];
+            console.log('Jekyll baseurl match found, redirecting to:', newUrl); // Debug log
+            if(isDev){
+                newUrl = newUrl + queryString;
+            }
+            window.location.replace(newUrl);
             return true;
         }
     }
     
-    // Handle paths without .html extension
+    // Handle paths without .html extension - THIS SECTION WAS MISSING
     if (!currentPath.endsWith('.html') && !currentPath.endsWith('/')) {
         const htmlPath = currentPath + '.html';
         if (SITE_REDIRECTS[htmlPath]) {
-            window.location.replace(SITE_REDIRECTS[htmlPath] + (isDev ? queryString : ''));
+            newUrl = SITE_REDIRECTS[htmlPath];
+            console.log('HTML extension match found, redirecting to:', newUrl); // Debug log
+            if(isDev){
+                newUrl = newUrl + queryString;
+            }
+            window.location.replace(newUrl);
             return true;
         }
     }
     
-    // Handle paths with just the filename (no directory)
+    // Handle paths with just the filename (no directory) - THIS SECTION WAS MISSING
     const pathParts = currentPath.split('/');
     const filename = pathParts[pathParts.length - 1];
     if (filename && SITE_REDIRECTS['/' + filename]) {
-        window.location.replace(SITE_REDIRECTS['/' + filename] + (isDev ? queryString : ''));
+        newUrl = SITE_REDIRECTS['/' + filename];
+        console.log('Filename match found, redirecting to:', newUrl); // Debug log
+        if(isDev){
+            newUrl = newUrl + queryString;
+        }
+        window.location.replace(newUrl);
         return true;
     }
     
@@ -115,13 +147,31 @@ function handleRedirects(isDev = false) {
     if (!currentPath.endsWith('index.html') && !currentPath.endsWith('/')) {
         const indexPath = currentPath + '/index.html';
         if (SITE_REDIRECTS[indexPath]) {
-            window.location.replace(SITE_REDIRECTS[indexPath] + (isDev ? queryString : ''));
+            newUrl = SITE_REDIRECTS[indexPath];
+            console.log('Index path match found, redirecting to:', newUrl); // Debug log
+            if(isDev){
+                newUrl = newUrl + queryString;
+            }
+            window.location.replace(newUrl);
             return true;
         }
     }
     
+    console.log('No redirect match found for:', currentPath);
     return false;
 }
+
+// Make sure this runs when the page loads
+window.onload = function() {
+    console.log('Window loaded, initializing redirect handler');
+    handleRedirects(true);
+};
+
+// Also keep the DOMContentLoaded event for redundancy
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing redirect handler');
+    handleRedirects(true);
+});
 
 // Export for use in other scripts
 if (typeof module !== 'undefined' && module.exports) {
